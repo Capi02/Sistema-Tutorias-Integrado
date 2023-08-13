@@ -1,0 +1,106 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Inicio de Sesión
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333;
+      }
+
+      form {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        width: 400px;
+      }
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        outline: none;
+        transition: border-color 0.2s ease;
+      }
+
+      input:focus {
+        border-color: #4285F4;
+      }
+
+      button[type="submit"] {
+        background-color: #4285F4;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #3367D6;
+      }
+
+      p {
+        text-align: center;
+      }
+
+      p a {
+        color: #4285F4;
+        text-decoration: none;
+      }
+    body
+      h1 Inicio de Sesión
+      form(action="/login", method="post")
+        label(for="username") Usuario:
+        input(type="text", id="username", name="username", required)
+        br
+        label(for="password") Contraseña:
+        input(type="password", id="password", name="password", required)
+        br
+        button(type="submit") Iniciar Sesión
+      p ¿No tienes una cuenta? Regístrate aquí
+      form(action="/register", method="post")
+        label(for="newUsername") Nuevo Usuario:
+        input(type="text", id="newUsername", name="newUsername", required)
+        br
+        label(for="newPassword") Nueva Contraseña:
+        input(type="password", id="newPassword", name="newPassword", required)
+        br
+        label(for="apellidoPaterno") Apellido Paterno:
+        input(type="text", id="apellidoPaterno", name="apellidoPaterno", required)
+        br
+        label(for="apellidoMaterno") Apellido Materno:
+        input(type="text", id="apellidoMaterno", name="apellidoMaterno", required)
+        br
+        label(for="nombre") Nombre:
+        input(type="text", id="nombre", name="nombre", required)
+        br
+        label(for="matricula") Matrícula:
+        input(type="text", id="matricula", name="matricula", required)
+        br
+        button(type="submit") Registrarse

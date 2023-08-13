@@ -1,0 +1,103 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  base(href='/academicos')
+  title Tutorias
+  link(rel='stylesheet' type='text/css' href='/styles/styles.css')
+#mensaje
+script(src='include/header.js')
+div.botones
+  a(href='/personales')
+    button.regresar
+      img.regresar-image(src='img/back.png', alt='')
+  a(href='/economicos')
+    button.regresar2
+      img.regresar-image(src='img/next.png', alt='')
+div
+  h1 Aspectos Académicos
+  span(style="color: red; display: block; text-align: center;") * Campos requeridos
+.containerform
+  form.formgrande(action='/guardarAcademicos' method='post')
+    .row
+      label(for='bachilleratoegresado') &iquest;De qu&eacute; bachillerato egresaste ? 
+        span(style="color: red;") *
+      select#inputaca1.input-field(style='width:250px' type='text' name='bachilleratoegresado' required='' value=bachilleratoegresado)
+        option(value='') Elija una opcion
+        option(value='CETis 71' selected=bachilleratoegresado === 'CETis 71') CETis 71
+        option(value='CETis 131' selected=bachilleratoegresado === 'CETis 131') CETis 131
+        option(value='CBTis 7' selected=bachilleratoegresado === 'CBTis 7') CBTis 7
+        option(value='CBTis 73' selected=bachilleratoegresado === 'CBTis 73') CBTis 73
+        option(value='CBTis 276' selected=bachilleratoegresado === 'CBTis 276') CBTis 276
+        option(value='Cobat 07' selected=bachilleratoegresado === 'Cobat 07') Cobat 07
+        option(value='Cobat 22' selected=bachilleratoegresado === 'Cobat 22') Cobat 22
+        option(value='Cobat 08 ' selected=bachilleratoegresado === 'Cobat 08 ') Cobat 08 
+        option(value='Cobat 17' selected=bachilleratoegresado === 'Cobat 17') Cobat 17
+        option(value='CBTa 275' selected=bachilleratoegresado === 'CBTa 275') CBTa 275
+        option(value='CONALEP 129' selected=bachilleratoegresado === 'CONALEP 129') CONALEP 129
+        option(value='CONALEP 200' selected=bachilleratoegresado === 'CONALEP 200') CONALEP 200
+        option(value='ITACE' selected=bachilleratoegresado === 'ITACE') ITACE
+        option(value='UMAN' selected=bachilleratoegresado === 'UMAN') UMAN
+        option(value='Universidad Miguel Aleman' selected=bachilleratoegresado === 'Universidad Miguel Aleman') Universidad Miguel Aleman
+        option(value='Preparatoria Fernando Montes De Oca' selected=bachilleratoegresado === 'Preparatoria Fernando Montes De Oca') Preparatoria Fernando Montes De Oca
+        option(value='Universidad del Atlántico' selected=bachilleratoegresado === 'Universidad del Atlántico') Universidad del Atlántico
+        option(value='Escuela Preparatoria Gral. Francisco J. Múgica' selected=bachilleratoegresado === 'Escuela Preparatoria Gral. Francisco J. Múgica') Escuela Preparatoria Gral. Francisco J. Múgica
+        option(value='Universidad Tamaulipeca' selected=bachilleratoegresado === 'Universidad Tamaulipeca') Universidad Tamaulipeca
+        option(value='IIES' selected=bachilleratoegresado === 'IIES') IIES
+        option(value='Otra' selected=bachilleratoegresado === 'Otra') Otra
+    #inputaca01Row.row(style='display: none;')
+      label(for='otrobachillerato') Otra
+        span(style="color: red;") *
+      input#input01.input-field(type='text' name='otrobachillerato' value=otrobachillerato required)
+    .row
+      label(for='especialidadbachillerato') Especialidad bachillerato:
+        span(style="color: red;") *
+      input#input2.input-field(type='text' name='especialidadbachillerato' placeholder='Especialidad bachillerato' required='' value=especialidadbachillerato)
+    .row
+      label(for='promediogeneral') Promedio general
+        span(style="color: red;") *
+      input#input2.input-field(type='text' name='promediogeneral' placeholder='Promedio general' required='' value=promediogeneral)
+    .row
+      label(for='materiasdificultan') Materias que se te dificultan
+        span(style="color: red;") *
+      input#input4.input-field(type='text' name='materiasdificultan' required='' value=materiasdificultan)
+    .row
+      label(for='tecnicasdeestudio' ) T&eacute;cnicas de estudio que utiliza
+        span(style="color: red;") *
+      input#input5.input-field(type='text' name='tecnicasdeestudio' required='' value=tecnicasdeestudio)
+    .row
+      label(for='exameninterno') &iquest;Hizo alg&uacute;n examen interno?
+        span(style="color: red;") *
+      select#inputaca6.input-field(name='exameninterno' required='')
+        option(value='') Elija una opcion
+        option(value='no' selected=exameninterno === 'no') No
+        option(value='si' selected=exameninterno === 'si') S&iacute;
+    #inputaca7Row.row(style='display: none;')
+      label(for='calificacioninterno') Calificaci&oacute;n
+        span(style="color: red;") *
+      input#input7.input-field(type='text' name='calificacioninterno' value=calificacioninterno required class='decimal-input')
+    .row
+      label(for='examenceneval') &iquest;Hizo examen ceneval?
+        span(style="color: red;") *
+      select#inputaca8.input-field(name='examenceneval' required='')
+        option(value='') Elija una opcion
+        option(value='no'  selected=examenceneval === 'no') No
+        option(value='si'  selected=examenceneval=== 'si') S&iacute;
+    #inputaca9Row.row(style='display: none;')
+      label(for='calificacionceneval') Calificaci&oacute;n 1:
+      input#input9.input-field(type='text' name='calificacionceneval' placeholder='Aquí se mostran las calificaciones' readonly="readonly" class='decimal-input')
+    #inputaca10Row.row(style='display: none;')
+      label(for='input10') Calificaci&oacute;n 2:
+      input#input10.input-field(type='text', placeholder='Cuando se tengan' readonly="readonly" class='decimal-input')
+    #inputaca11Row.row(style='display: none;')
+      label(for='input11') Calificaci&oacute;n 3:
+      input#input11.input-field(type='text', placeholder='Aquí se mostran las calificaciones' readonly="readonly" class='decimal-input')
+    #inputaca12Row.row(style='display: none;')
+      label(for='input12') Calificaci&oacute;n 4:
+      input#input12.input-field(type='text', placeholder='Cuando se tengan' readonly="readonly" class='decimal-input')
+    .botondiv
+      button.submit-button(type='submit') Enviar
+script(src='include/footer.js')
+script(src='include/changesaca.js')
+script(src="include/number.js") 
