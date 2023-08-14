@@ -79,7 +79,8 @@ router.get("/", authenticateToken, (req, res) => {
     const locals = {
         title: "Inicio",
         username,
-        role
+        role,
+        user_id: process.env.USER_ID
     }
     res.render("inicio", locals)
 })
