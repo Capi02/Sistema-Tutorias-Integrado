@@ -1,5 +1,6 @@
 const { authenticateToken, adminAuth } = require("../middlewares/validateToken")
 const Router = require("express");
+const path = require("path");
 const router = Router();
 const Test1 = require("../models/pensamiento.abstracto.model");
 const mongoose = require("mongoose");
@@ -81,6 +82,16 @@ router.get("/", authenticateToken, (req, res) => {
         role
     }
     res.render("inicio", locals)
+})
+
+router.get("/becas", authenticateToken, (req, res) => {
+    const { username, role } = req.user;
+    const locals = {
+        title: "Becas",
+        username,
+        role
+    }
+    res.sendFile(path.join(__dirname.toString().split('routes')[0], "views/becas/index.html"));
 })
 
 

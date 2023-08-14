@@ -1,0 +1,1 @@
+import{Q as e}from"./QLinearProgress.622d7e3a.js";import{_ as s,m as o,aq as a,d as t}from"./index.a087d920.js";const c={setup(){return{progress:.25}}},n={class:"q-pa-md"};function p(m,_,d,r,i,l){return o(),a("div",n,[t(e,{rounded:"",size:"20px",value:r.progress,color:"primary",class:"q-mt-sm"},null,8,["value"])])}var g=s(c,[["render",p]]);export{g as P};

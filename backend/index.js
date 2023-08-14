@@ -33,6 +33,7 @@ app.use("/api/upload/excel", excelRoutes);
   
 
 app.use(express.static('public'));
+app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, '../frontend/public')));
 
 dotenv.config();
