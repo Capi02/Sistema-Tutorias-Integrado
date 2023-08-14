@@ -152,10 +152,10 @@ router.get("/personales", authenticateToken, async (req, res) => {
         if (req.user.username) {
 
             const student = await Student.findOne({ username: req.user.username });
-            console.log(student)
             if (student) {
 
                 res.render("personales", {
+                    heading: "Aspectos Personales",
                     apellidoPaterno: student.apellidoPaterno,
                     apellidoMaterno: student.apellidoMaterno,
                     nombre: student.nombre,
@@ -179,7 +179,8 @@ router.get("/personales", authenticateToken, async (req, res) => {
                 res.status(404).send("Usuario no encontrado");
             }
         } else {
-            res.redirect("/"); // Redirigir al inicio de sesión si el usuario no ha iniciado sesión
+            console.log("NO usuario ")
+            
         }
     } catch (err) {
         console.error("Error al buscar al usuario:", err);
@@ -196,6 +197,7 @@ router.get("/academicos", authenticateToken, async (req, res) => {
             if (student) {
 
                 res.render("academicos", {
+                    heading: "Aspectos Academicos",
                     bachilleratoegresado: student.aspectosAcademicos.bachilleratoegresado,
                     otrobachillerato: student.aspectosAcademicos.otrobachillerato,
                     especialidadbachillerato: student.aspectosAcademicos.especialidadbachillerato,
@@ -229,6 +231,7 @@ router.get("/economicos", authenticateToken, async (req, res) => {
             if (student) {
 
                 res.render("economicos", {
+                    heading: "Aspectos Economicos",
                     conquienvives: student.aspectosEconomicos.conquienvives,
                     casadondevives: student.aspectosEconomicos.casadondevives,
                     profesionpapa: student.aspectosEconomicos.profesionpapa,
@@ -269,6 +272,7 @@ router.get("/salud", authenticateToken, async (req, res) => {
             if (student) {
 
                 res.render("salud", {
+                    heading: "Aspectos de Salud",
                     enfermadadcronica: student.aspectosSalud.enfermadadcronica,
                     queenfermedad: student.aspectosSalud.queenfermedad,
                     otraenfermedad: student.aspectosSalud.otraenfermedad,
@@ -351,7 +355,7 @@ router.post("/guardarAcademicos", authenticateToken, async (req, res) => {
         try {
             const student = await Student.findOne({ username });
             if (student) {
-                // Crear el objeto "aspectosPersonales" solo si los datos son enviados
+                
                 student.aspectosAcademicos.bachilleratoegresado = req.body.bachilleratoegresado;
                 student.aspectosAcademicos.otrobachillerato = req.body.otrobachillerato;
                 student.aspectosAcademicos.especialidadbachillerato = req.body.especialidadbachillerato;

@@ -1,0 +1,93 @@
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
+
+.back-next_buttons_container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4.5rem;
+  .regresar {
+    border: none;
+    border-radius: 3px;
+    background-color: v.$uttn_green;
+    height: 40px;
+    width: 80px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+
+    &:hover{
+      background-color: darken(v.$uttn_green, 4);
+    }
+  }
+
+  .regresar_img {
+    height: 25px;
+    width: 25px;
+  }
+}
+
+.entrevista_incial_title_container {
+  .entrevista_inicial_title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .required_text {
+    font-size: 1.8rem;
+    color: red;
+    display: block;
+    text-align: center;
+  }
+}
+
+.required_inputs {
+  color: red;
+}
+
+.entrevista_inicial_form_container {
+  margin-top: 4rem;
+  margin-bottom: 8rem;
+
+  .student_info_form {
+    border: 1px solid #999;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1.5rem;
+  }
+
+  .entrevista_inicial_button_container{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+  }
+}
+
+
+
+.entrevista_inicial_inputs_field {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+    overflow: auto; /* Agrega un scroll interno si el contenido excede el tamaño */
+
+    label {
+      margin-bottom: 1rem;
+      display:block;
+    }
+
+    .entrevista_inicial_inputs{
+        width: 100%;
+        padding: 0.5rem;
+
+        &:focus{
+          outline: none;
+          border: 2px solid v.$uttn_green;
+        }
+    }
+  }
+
+
+

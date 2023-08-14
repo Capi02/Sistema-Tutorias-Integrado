@@ -15,7 +15,7 @@ const form = document.getElementById("myForm");
 function mostrarInputaca7Row() {
   if (inputaca6.value === 'si') {
     // Mostrar el tercer input y recorrer los demás
-    inputaca7Row.style.display = 'flex'; // Mostrar el tercer input (por defecto estaba display: none;)
+    inputaca7Row.style.display = 'grid'; // Mostrar el tercer input (por defecto estaba display: none;)
     input7.setAttribute('required', 'required'); // Agregar el atributo 'required' al campo input7
     form.appendChild(inputaca7Row); // Mover el tercer input al final del form
   } else {
@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', mostrarInputaca7Row);
 function mostrarInputaca1Row() {
   if (inputaca1.value === 'Otra') {
     // Mostrar el tercer input y recorrer los demás
-    inputaca01Row.style.display = 'flex'; // Mostrar el tercer input (por defecto estaba display: none;)
+    inputaca01Row.style.display = 'grid'; // Mostrar el tercer input (por defecto estaba display: none;)
     input01.setAttribute('required', 'required'); // Agregar el atributo 'required' al campo input7
     form.appendChild(inputaca01Row); // Mover el tercer input al final del form
   } else {
@@ -61,10 +61,10 @@ window.addEventListener('DOMContentLoaded', mostrarInputaca1Row);
 function mostrarInputsSiguientes() {
     if (inputaca8.value === 'si') {
         // Mostrar los siguientes inputs
-        inputaca9Row.style.display = 'flex';
-        inputaca10Row.style.display = 'flex';
-        inputaca11Row.style.display = 'flex';
-        inputaca12Row.style.display = 'flex';
+        inputaca9Row.style.display = 'grid';
+        inputaca10Row.style.display = 'grid';
+        inputaca11Row.style.display = 'grid';
+        inputaca12Row.style.display = 'grid';
     } else {
         // Ocultar los siguientes inputs
         inputaca9Row.querySelector('input').value = '';

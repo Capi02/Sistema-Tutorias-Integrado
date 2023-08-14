@@ -1173,6 +1173,82 @@ header {
   text-align: center;
 }
 
+.back-next_buttons_container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4.5rem;
+}
+.back-next_buttons_container .regresar {
+  border: none;
+  border-radius: 3px;
+  background-color: #1ab192;
+  height: 40px;
+  width: 80px;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+.back-next_buttons_container .regresar:hover {
+  background-color: #179f83;
+}
+.back-next_buttons_container .regresar_img {
+  height: 25px;
+  width: 25px;
+}
+
+.entrevista_incial_title_container .entrevista_inicial_title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.entrevista_incial_title_container .required_text {
+  font-size: 1.8rem;
+  color: red;
+  display: block;
+  text-align: center;
+}
+
+.required_inputs {
+  color: red;
+}
+
+.entrevista_inicial_form_container {
+  margin-top: 4rem;
+  margin-bottom: 8rem;
+}
+.entrevista_inicial_form_container .student_info_form {
+  border: 1px solid #999;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1.5rem;
+}
+.entrevista_inicial_form_container .entrevista_inicial_button_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.entrevista_inicial_inputs_field {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  box-sizing: border-box;
+  overflow: auto; /* Agrega un scroll interno si el contenido excede el tamaño */
+}
+.entrevista_inicial_inputs_field label {
+  margin-bottom: 1rem;
+  display: block;
+}
+.entrevista_inicial_inputs_field .entrevista_inicial_inputs {
+  width: 100%;
+  padding: 0.5rem;
+}
+.entrevista_inicial_inputs_field .entrevista_inicial_inputs:focus {
+  outline: none;
+  border: 2px solid #1ab192;
+}
+
 .ti_bg {
   width: auto;
   margin: 2rem auto;
@@ -1203,7 +1279,7 @@ header {
   grid-column-start: 2;
   grid-column-end: 3;
   margin: auto;
-  padding: 3rem;
+  padding: 2rem;
   margin-bottom: 6rem;
 }
 
@@ -1274,14 +1350,6 @@ header {
   margin-bottom: 1rem;
   margin-right: 3rem;
 }
-.add_user_field .add_user_label {
-  display: inline-block;
-  margin-bottom: 0.8rem;
-  color: #000;
-  text-transform: uppercase;
-  font-size: 1.3rem;
-  font-weight: 600;
-}
 .add_user_field .add_user_input {
   width: 100%;
   height: 3.6rem;
@@ -1294,6 +1362,15 @@ header {
 .add_user_field .add_user_input:focus {
   outline: none;
   border-bottom: 1.5px solid #1ab192;
+}
+
+.add_user_label {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  color: #000;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 
 .register_buttons_container {
@@ -1373,6 +1450,6 @@ header {
   border: 1.5px solid black;
 }
 .edit_field .edit_input:focus {
-  border: 2px solid #1ab192;
+  border: 3px solid #1ab192;
   outline: none;
 }

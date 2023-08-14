@@ -1,127 +1,110 @@
-doctype html
-head
-  meta(charset='UTF-8')
-  meta(http-equiv='X-UA-Compatible' content='IE=edge')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  base(href='/salud')
-  title Tutorias
-  link(rel='stylesheet' type='text/css' href='/styles/styles.css')
-#mensaje
-script(src='include/header.js')
-div.botones
-  a(href='/economicos')
-    button.regresar
-      img.regresar-image(src='img/back.png', alt='')
-  a(href='/personales')
-    button.regresar2
-      img.regresar-image(src='img/next.png', alt='')
-div
-  h1 Aspectos de Salud
-  span(style="color: red; display: block; text-align: center;") * Campos requeridos
-.containerform
-  form(action='/guardarSalud' method='post')
-    .row
-      label(for='enfermadadcronica') &iquest;Padeces alguna enfermedad cr&oacute;nica?
-        span(style="color: red;") *
-      select#inputsal1.input-field(name='enfermadadcronica' required='')
-        option(value='') Elija una opcion
-        option(value='no' selected=enfermadadcronica === 'no') No
-        option(value='si' selected=enfermadadcronica === 'si') S&iacute;
-    #inputsal2Row.row(style='display: none;')
-      label(for='queenfermedad') &iquest;Qu&eacute; enfermedad?
-        span(style="color: red;") *
-      br
-      select#input2.input-field(type='text' name='queenfermedad' value=queenfermedad required)
-          option(value='') Elija una opcion
-          option(value='Hipertensión' selected=queenfermedad === 'Hipertensión') Hipertensión
-          option(value='Diabetes' selected=queenfermedad === 'Diabetes') Diabetes
-          option(value='Asma' selected=queenfermedad === 'Asma') Asma
-          option(value='Epilepsia' selected=queenfermedad === 'Epilepsia') Epilepsia
-          option(value='Cardipatía/Arritmia' selected=queenfermedad === 'Cardipatía/Arritmia') Cardipatía/Arritmia
-          option(value='Dislipidemias' selected=queenfermedad === 'Dislipidemias') Dislipidemias
-          option(value='Vista' selected=queenfermedad === 'Vista') Vista
-          option(value='Osteoporosis' selected=queenfermedad === 'Osteoporosis') Osteoporosis
-          option(value='Anemia' selected=queenfermedad === 'Anemia') Anemia
-          option(value='Artrosis/Artritis' selected=queenfermedad === 'Artrosis/Artritis') Artrosis/Artritis
-          option(value='Coagulación Sanguínea' selected=queenfermedad === 'Coagulación Sanguínea') Coagulación Sanguínea
-          option(value='Cirugías anteriores' selected=queenfermedad === 'Cirugías anteriores') Cirugías anteriores
-          option(value='Otras' selected=queenfermedad === 'Otras') Otras
-    #inputsal02Row.row(style='display: none;')
-      label(for='otraenfermedad') Otra
-        span(style="color: red;") * 
-      br
-      input#input02.input-field(type='text' name='otraenfermedad' placeholder='Otra enfermedad' required='' value=otraenfermedad)
-    .row
-      label(for='tomamedicamento') &iquest;Tomas medicamento peri&oacute;dicamente?
-        span(style="color: red;") *
-      select#inputsal3.input-field(name='tomamedicamento' required='')
-        option(value='') Elija una opcion
-        option(value='no' selected=tomamedicamento === 'no') No
-        option(value='si' selected=tomamedicamento === 'si') S&iacute;
-    #inputsal4Row.row(style='display: none;')
-      label(for='medicamentoyfrecuencia') Escribe el nombre y la frecuencia
-        span(style="color: red;") *
-      input#input4.input-field(type='text' name='medicamentoyfrecuencia' value=medicamentoyfrecuencia required)
-    .row
-      label(for='tienediscapacidad') &iquest;Tienes alguna discapacidad?
-        span(style="color: red;") *
-      br
-      select#inputsal5.input-field(name='tienediscapacidad' required='')
-        option(value='') Elija una opcion
-        option(value='no' selected=tienediscapacidad === 'no') No
-        option(value='si' selected=tienediscapacidad === 'si') S&iacute;
-    #inputsal6Row.row(style='display: none;')
-      label(for='tipodiscapacidad') &iquest;Qu&eacute; discapacidad?
-        span(style="color: red;") *
-      br
-      input#input6.input-field(type='text' name='tipodiscapacidad' value=tipodiscapacidad required)
-    .row
-      label(for='condicionpsicosocial') &iquest;Cuentas con una condici&oacute;n psicosocial?
-        span(style="color: red;") *
-      select#inputsal7.input-field(name='condicionpsicosocial' required='')
-        option(value='') Elija una opcion
-        option(value='no' selected=condicionpsicosocial === 'no') No
-        option(value='si' selected=condicionpsicosocial === 'si') S&iacute;
-    #inputsal8Row.row(style='display: none;')
-      label(for='tipocondicion') &iquest;Qu&eacute; condici&oacute;n?
-        span(style="color: red;") *
-      br
-      input#input8.input-field(type='text' name='tipocondicion' value=tipocondicion required)
-    .row
-      label(for='bebidasalcoholicas') &iquest;Ingieres bebidas alcoh&oacute;licas?
-        span(style="color: red;") *
-      br
-      select#inputsal9.input-field(name='bebidasalcoholicas' required='')
-        option(value='') Elija una opcion
-        option(value='no' selected=bebidasalcoholicas === 'no') No
-        option(value='si' selected=bebidasalcoholicas === 'si') S&iacute;
-    #inputsal10Row.row(style='display: none;')
-      label(for='frecuenciabebidas') &iquest;Con qu&eacute; frecuencia?
-        span(style="color: red;") *
-      br
-      select#input10.input-field(type='text' name='frecuenciabebidas' value=frecuenciabebidas required)
-        option(value='') Elija una opcion
-        option(value='Diario' selected=frecuenciabebidas === 'Diario') Diario
-        option(value='2-3 veces por semana' selected=frecuenciabebidas === '2-3 veces por semana') 2-3 veces por semana
-        option(value='2-3 veces por mes' selected=frecuenciabebidas === '2-3 veces por mes') 2-3 veces por mes
-    .row
-      label(for='fumas') &iquest;Fumas?
-        span(style="color: red;") *
-      br
-      select#inputsal11.input-field(name='fumas' required='')
-        option(value='') Elija una opcion
-        option(value='no' selected=fumas === 'no') No
-        option(value='si' selected=fumas === 'si') S&iacute;
-    #inputsal12Row.row(style='display: none;')
-      label(for='frecuenciafumas') &iquest;Con qu&eacute; frecuencia?
-        span(style="color: red;") *
-      br
-      select#input12.input-field(type='text' name='frecuenciafumas' required)
-        option(value='') Elija una opcion
-        option(value='Diario' selected=frecuenciafumas === 'Diario') Diario
-        option(value='2-3 veces por semana' selected=frecuenciafumas === '2-3 veces por semana') 2-3 veces por semana
-        option(value='2-3 veces por mes' selected=frecuenciafumas === '2-3 veces por mes') 2-3 veces por mes
-    .botondiv
-      button.submit-button(type='submit') Enviar
-script(src='include/footer.js')
-script(src='include/changessal.js')
+extends ./layout/index
+block contenido
+
+  .section.container
+    .back-next_buttons_container
+      a(href='/economicos')
+        button.regresar
+          img.regresar_img(src='img/back.png', alt='')
+
+    .entrevista_incial_title_container 
+      h1.entrevista_inicial_title #{heading}
+      span.required_text * Campos requeridos
+
+    .entrevista_inicial_form_container
+      form.student_info_form(action='/guardarSalud' method='post')
+        .entrevista_inicial_inputs_field
+          label(for='enfermadadcronica') &iquest;Padeces alguna enfermedad cr&oacute;nica?
+            span.required_inputs *
+          select#inputsal1.entrevista_inicial_inputs(name='enfermadadcronica' required='')
+            option(value='') Elija una opcion
+            option(value='no' selected=enfermadadcronica === 'no') No
+            option(value='si' selected=enfermadadcronica === 'si') S&iacute;
+        #inputsal2Row.entrevista_inicial_inputs_field(style='display: none;')
+          label(for='queenfermedad') &iquest;Qu&eacute; enfermedad?
+            span.required_inputs *
+          select#input2.entrevista_inicial_inputs(type='text' name='queenfermedad' value=queenfermedad required)
+              option(value='') Elija una opcion
+              option(value='Hipertensión' selected=queenfermedad === 'Hipertensión') Hipertensión
+              option(value='Diabetes' selected=queenfermedad === 'Diabetes') Diabetes
+              option(value='Asma' selected=queenfermedad === 'Asma') Asma
+              option(value='Epilepsia' selected=queenfermedad === 'Epilepsia') Epilepsia
+              option(value='Cardipatía/Arritmia' selected=queenfermedad === 'Cardipatía/Arritmia') Cardipatía/Arritmia
+              option(value='Dislipidemias' selected=queenfermedad === 'Dislipidemias') Dislipidemias
+              option(value='Vista' selected=queenfermedad === 'Vista') Vista
+              option(value='Osteoporosis' selected=queenfermedad === 'Osteoporosis') Osteoporosis
+              option(value='Anemia' selected=queenfermedad === 'Anemia') Anemia
+              option(value='Artrosis/Artritis' selected=queenfermedad === 'Artrosis/Artritis') Artrosis/Artritis
+              option(value='Coagulación Sanguínea' selected=queenfermedad === 'Coagulación Sanguínea') Coagulación Sanguínea
+              option(value='Cirugías anteriores' selected=queenfermedad === 'Cirugías anteriores') Cirugías anteriores
+              option(value='Otras' selected=queenfermedad === 'Otras') Otras
+        #inputsal02Row.entrevista_inicial_inputs_field(style='display: none;')
+          label(for='otraenfermedad') Otra
+            span.required_inputs * 
+          input#input02.entrevista_inicial_inputs(type='text' name='otraenfermedad' placeholder='Otra enfermedad' required='' value=otraenfermedad)
+        .entrevista_inicial_inputs_field
+          label(for='tomamedicamento') &iquest;Tomas medicamento peri&oacute;dicamente?
+            span.required_inputs *
+          select#inputsal3.entrevista_inicial_inputs(name='tomamedicamento' required='')
+            option(value='') Elija una opcion
+            option(value='no' selected=tomamedicamento === 'no') No
+            option(value='si' selected=tomamedicamento === 'si') S&iacute;
+        #inputsal4Row.entrevista_inicial_inputs_field(style='display: none;')
+          label(for='medicamentoyfrecuencia') Escribe el nombre y la frecuencia
+            span.required_inputs *
+          input#input4.entrevista_inicial_inputs(type='text' name='medicamentoyfrecuencia' value=medicamentoyfrecuencia required)
+        .entrevista_inicial_inputs_field
+          label(for='tienediscapacidad') &iquest;Tienes alguna discapacidad?
+            span.required_inputs *
+          select#inputsal5.entrevista_inicial_inputs(name='tienediscapacidad' required='')
+            option(value='') Elija una opcion
+            option(value='no' selected=tienediscapacidad === 'no') No
+            option(value='si' selected=tienediscapacidad === 'si') S&iacute;
+        #inputsal6Row.entrevista_inicial_inputs_field(style='display: none;')
+          label(for='tipodiscapacidad') &iquest;Qu&eacute; discapacidad?
+            span.required_inputs *
+          input#input6.entrevista_inicial_inputs(type='text' name='tipodiscapacidad' value=tipodiscapacidad required)
+        .entrevista_inicial_inputs_field
+          label(for='condicionpsicosocial') &iquest;Cuentas con una condici&oacute;n psicosocial?
+            span.required_inputs *
+          select#inputsal7.entrevista_inicial_inputs(name='condicionpsicosocial' required='')
+            option(value='') Elija una opcion
+            option(value='no' selected=condicionpsicosocial === 'no') No
+            option(value='si' selected=condicionpsicosocial === 'si') S&iacute;
+        #inputsal8Row.entrevista_inicial_inputs_field(style='display: none;')
+          label(for='tipocondicion') &iquest;Qu&eacute; condici&oacute;n?
+            span.required_inputs *
+          input#input8.entrevista_inicial_inputs(type='text' name='tipocondicion' value=tipocondicion required)
+        .entrevista_inicial_inputs_field
+          label(for='bebidasalcoholicas') &iquest;Ingieres bebidas alcoh&oacute;licas?
+            span.required_inputs *
+          select#inputsal9.entrevista_inicial_inputs(name='bebidasalcoholicas' required='')
+            option(value='') Elija una opcion
+            option(value='no' selected=bebidasalcoholicas === 'no') No
+            option(value='si' selected=bebidasalcoholicas === 'si') S&iacute;
+        #inputsal10Row.entrevista_inicial_inputs_field(style='display: none;')
+          label(for='frecuenciabebidas') &iquest;Con qu&eacute; frecuencia?
+            span.required_inputs *
+          select#input10.entrevista_inicial_inputs(type='text' name='frecuenciabebidas' value=frecuenciabebidas required)
+            option(value='') Elija una opcion
+            option(value='Diario' selected=frecuenciabebidas === 'Diario') Diario
+            option(value='2-3 veces por semana' selected=frecuenciabebidas === '2-3 veces por semana') 2-3 veces por semana
+            option(value='2-3 veces por mes' selected=frecuenciabebidas === '2-3 veces por mes') 2-3 veces por mes
+        .entrevista_inicial_inputs_field
+          label(for='fumas') &iquest;Fumas?
+            span.required_inputs *
+          select#inputsal11.entrevista_inicial_inputs(name='fumas' required='')
+            option(value='') Elija una opcion
+            option(value='no' selected=fumas === 'no') No
+            option(value='si' selected=fumas === 'si') S&iacute;
+        #inputsal12Row.entrevista_inicial_inputs_field(style='display: none;')
+          label(for='frecuenciafumas') &iquest;Con qu&eacute; frecuencia?
+            span.required_inputs *
+          select#input12.entrevista_inicial_inputs(type='text' name='frecuenciafumas' required)
+            option(value='') Elija una opcion
+            option(value='Diario' selected=frecuenciafumas === 'Diario') Diario
+            option(value='2-3 veces por semana' selected=frecuenciafumas === '2-3 veces por semana') 2-3 veces por semana
+            option(value='2-3 veces por mes' selected=frecuenciafumas === '2-3 veces por mes') 2-3 veces por mes
+        .entrevista_inicial_button_container
+          button.submit-button.forms_button(type='submit') Enviar
+    script(src='include/changessal.js')

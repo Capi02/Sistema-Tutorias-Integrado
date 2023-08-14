@@ -1,205 +1,202 @@
-doctype html
-head
-  meta(charset='UTF-8')
-  meta(http-equiv='X-UA-Compatible' content='IE=edge')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  base(href='/personales')
-  title Tutorias
-  link(rel='stylesheet' type='text/css' href='/styles/styles.css')
-#mensaje
-script(src='include/header.js')
-div.botones
-  a(href='/salud')
-    button.regresar
-      img.regresar-image(src='img/back.png', alt='')
-  a(href='/academicos')
-    button.regresar2
-      img.regresar-image(src='img/next.png', alt='')
-div
-  h1 Aspectos Personales
-  span(style="color: red; display: block; text-align: center;") * Campos requeridos
-.containerform
-  form.formgrande(action='/guardarPersonales' method='post')
-    .row
-      label(for='apellidoPaterno') Apellido paterno
-        span(style="color: red;") * 
-      input.input-field(type='text' name='apellidoPaterno' readonly="readonly" placeholder='Apellido Paterno' required='' value=apellidoPaterno)
-    .row
-      label(for='apellidoMaterno') Apellido materno
-        span(style="color: red;") * 
-      input#input2.input-field(type='text' name='apellidoMaterno' readonly="readonly" placeholder='Apellido materno' required='' value=apellidoMaterno)
-    .row
-      label(for='nombre') Nombre
-        span(style="color: red;") * 
-      input#input3.input-field(type='text' name='nombre' readonly="readonly" placeholder='Nombre' required='' value=nombre)
-    .row
-      label(for='fechadenacimiento') Fecha de nacimiento
-        span(style="color: red;") *
-      input#input5.input-field(type='date' name='fechadenacimiento' placeholder='Fecha de nacimiento' required='' value=fechadenacimiento ? fechadenacimiento.toISOString().substr(0, 10) : '')
-    .row
-      label(for='email') Correo institucional
-        span(style="color: red;") *
-      input#input03.input-field(type='email' name='email' placeholder='Correo institucional' required='' value=email)
-    .row
-      label(for='matricula') Matrícula
-        span(style="color: red;") *
-      input#input4.input-field(type='text' name='matricula' readonly="readonly" placeholder='Matricula' required='' value=matricula)
-    .row
-      label(for='carrera') Carrera
-        span(style="color: red;") *
-      select#input6.input-field(type='text' name='carrera' placeholder='Correo institucional' required='')
-        option(value='' selected) Elija su carrera
-        option(value='Mecatrónica' selected=carrera === 'Mecatrónica') Mecatrónica
-        option(value='Procesos y Operaciones Industriales' selected=carrera === 'Procesos y Operaciones Industriales') Procesos y Operaciones Industriales
-        option(value='Energías Renovables' selected=carrera === 'Energías Renovables') Energías Renovables
-        option(value='Mantenimiento Industrial' selected=carrera === 'Mantenimiento Industrial') Mantenimiento Industrial
-        option(value='Administracion' selected=carrera === 'Administracion') Administracion
-        option(value='Tecnologías de la Información' selected=carrera === 'Tecnologías de la Información') Tecnologías de la Información
-    .row
-      label(for='area') Área
-        span(style="color: red;") *
-      select#input7.input-field(type='text' name='area' placeholder='Área' required='')
-        option(value='' selected) Elija su área
-        option(value='TSU EN MECATRÓNICA, ÁREA SISTEMAS DE MANUFACTURA FLEXIBLE' selected=area === 'TSU EN MECATRÓNICA, ÁREA SISTEMAS DE MANUFACTURA FLEXIBLE') TSU EN MECATRÓNICA, ÁREA SISTEMAS DE MANUFACTURA FLEXIBLE
-        option(value='TSU EN MECATRÓNICA, ÁREA AUTOMATIZACIÓN' selected=area === 'TSU EN MECATRÓNICA, ÁREA AUTOMATIZACIÓN') TSU EN MECATRÓNICA, ÁREA AUTOMATIZACIÓN
-        option(value='TSU EN MECATRÓNICA, ÁREA INSTALACIONES ELÉCTRICAS EFICIENTES' selected=area === 'TSU EN MECATRÓNICA, ÁREA INSTALACIONES ELÉCTRICAS EFICIENTES') TSU EN MECATRÓNICA, ÁREA INSTALACIONES ELÉCTRICAS EFICIENTES
-        option(value='ING. EN MECATRÓNICA' selected=area === 'ING. EN MECATRÓNICA') ING. EN MECATRÓNICA
-        option(value='TSU EN PROCESOS INDUSTRIALES, ÁREA MANUFACTURA' selected=area === 'TSU EN PROCESOS INDUSTRIALES, ÁREA MANUFACTURA') TSU EN PROCESOS INDUSTRIALES, ÁREA MANUFACTURA
-        option(value='TSU EN PROCESOS INDUSTRIALES, ÁREA PLÁSTICOS' selected=area === 'TSU EN PROCESOS INDUSTRIALES, ÁREA PLÁSTICOS') TSU EN PROCESOS INDUSTRIALES, ÁREA PLÁSTICOS
-        option(value='ING. EN PROCESOS Y OPERACIONES INDUSTRIALES' selected=area === 'ING. EN PROCESOS Y OPERACIONES INDUSTRIALES') ING. EN PROCESOS Y OPERACIONES INDUSTRIALES
-        option(value='TSU EN ENERGÍAS RENOVABLES, ÁREA CALIDAD Y AHORRO DE ENERGÍA' selected=area === 'TSU EN ENERGÍAS RENOVABLES, ÁREA CALIDAD Y AHORRO DE ENERGÍA') TSU EN ENERGÍAS RENOVABLES, ÁREA CALIDAD Y AHORRO DE ENERGÍA
-        option(value='ING. EN ENERGÍAS RENOVABLES' selected=area === 'ING. EN ENERGÍAS RENOVABLES') ING. EN ENERGÍAS RENOVABLES
-        option(value='TSU EN MANTENIMIENTO, ÁREA INDUSTRIAL' selected=area === 'TSU EN MANTENIMIENTO, ÁREA INDUSTRIAL') TSU EN MANTENIMIENTO, ÁREA INDUSTRIAL
-        option(value='TSU EN MANTENIMIENTO, ÁREA MAQUINARIA PESADA' selected=area === 'TSU EN MANTENIMIENTO, ÁREA MAQUINARIA PESADA') TSU EN MANTENIMIENTO, ÁREA MAQUINARIA PESADA
-        option(value='TSU EN MANTENIMIENTO, ÁREA REFRIGERACIÓN' selected=area === 'TSU EN MANTENIMIENTO, ÁREA REFRIGERACIÓN') TSU EN MANTENIMIENTO, ÁREA REFRIGERACIÓN
-        option(value='TSU EN MANTENIMIENTO, ÁREA PETRÓLEO' selected=area === 'TSU EN MANTENIMIENTO, ÁREA PETRÓLEO') TSU EN MANTENIMIENTO, ÁREA PETRÓLEO
-        option(value='ING. EN MANTENIMIENTO INDUSTRIAL' selected=area === 'ING. EN MANTENIMIENTO INDUSTRIAL') ING. EN MANTENIMIENTO INDUSTRIAL
-        option(value='TSU EN ADMINISTRACIÓN, ÁREA FORMULACIÓN Y EVALUACIÓN DE PROYECTOS' selected=area === 'TSU EN ADMINISTRACIÓN, ÁREA FORMULACIÓN Y EVALUACIÓN DE PROYECTOS') TSU EN ADMINISTRACIÓN, ÁREA FORMULACIÓN Y EVALUACIÓN DE PROYECTOS
-        option(value='TSU EN ADMINISTRACIÓN, ÁREA CAPITAL HUMANO' selected=area === 'TSU EN ADMINISTRACIÓN, ÁREA CAPITAL HUMANO') TSU EN ADMINISTRACIÓN, ÁREA CAPITAL HUMANO
-        option(value='LIC. EN GESTIÓN DE NEGOCIOS Y PROYECTOS' selected=area === 'LIC. EN GESTIÓN DE NEGOCIOS Y PROYECTOS') LIC. EN GESTIÓN DE NEGOCIOS Y PROYECTOS
-        option(value='LIC. EN GESTIÓN DE CAPITAL HUMANO' selected=area === 'LIC. EN GESTIÓN DE CAPITAL HUMANO') LIC. EN GESTIÓN DE CAPITAL HUMANO
-        option(value='TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES' selected=area === 'TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES') TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES
-        option(value='TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA DESARROLLO DE SOFTWARE MULTIPLATAFORMA' selected=area === 'TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA DESARROLLO DE SOFTWARE MULTIPLATAFORMA') TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA DESARROLLO DE SOFTWARE MULTIPLATAFORMA
-        option(value='ING. EN DESARROLLO Y GESTIÓN DE SOFTWARE' selected=area === 'ING. EN DESARROLLO Y GESTIÓN DE SOFTWARE') ING. EN DESARROLLO Y GESTIÓN DE SOFTWARE
-        option(value='ING. EN ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES' selected=area === 'ING. EN ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES') ING. EN ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES
+extends ./layout/index
+block contenido
 
-    .row
-      label(for='grado') Grado
-        span(style="color: red;") *
-      select#input8.input-field(type='text' name='grado' placeholder='Grado' required='' value=grado)
-        option(value='') Elija su grado 
-        option(value='0' selected=grado === '0') 0
-        option(value='1' selected=grado === '1') 1
-        option(value='2' selected=grado === '2') 2
-        option(value='3' selected=grado === '3') 3
-        option(value='4' selected=grado === '4') 4
-        option(value='5' selected=grado === '5') 5
-        option(value='6' selected=grado === '6') 6
-        option(value='7' selected=grado === '7') 7
-        option(value='8' selected=grado === '8') 8
-        option(value='9' selected=grado === '9') 9
-        option(value='10' selected=grado === '10') 10
-        option(value='11' selected=grado === '11') 11
-    .row
-      label(for='grupo') Grupo
-        span(style="color: red;") *
-      select#input9.input-field(type='text' name='grupo' placeholder='Grupo' required='' value=grupo)
-        option(value='') Elija su grupo 
-        option(value='A' selected=grupo === 'A') A
-        option(value='B' selected=grupo === 'B') B
-        option(value='C' selected=grupo === 'C') C
-        option(value='D' selected=grupo === 'D') D
-        option(value='E' selected=grupo === 'E') E
-        option(value='F' selected=grupo === 'F') F
-        option(value='G' selected=grupo === 'G') G
-        option(value='H' selected=grupo === 'H') H
-        option(value='I' selected=grupo === 'I') I
-        option(value='J' selected=grupo === 'J') J
-        option(value='K' selected=grupo === 'K') K
-        option(value='L' selected=grupo === 'L') L
-        option(value='M' selected=grupo === 'M') M
-    .row
-      label(for='telefono') Teléfono
-        span(style="color: red;") *
-      input#input10.input-field(type='tel' pattern='[0-9]*' name='telefono' placeholder='Ej. 8991234567' minlength='10' maxlength='10' required='' value=telefono)
-    .row
-      label(for='sexo') Sexo
-        span(style="color: red;") *
-      select#inputper12.input-field(type='text' name='sexo' placeholder='' required='' value=sexo)
-        option(value='') Elija una opción
-        option(value='Masculino' selected=sexo === 'Masculino') Masculino
-        option(value='Femenino' selected=sexo === 'Femenino') Femenino
-    .row
-      label(for='telefonoemergencia') Teléfono de emergencia  
-        span(style="color: red;") *
-      input#input11.input-field(type='tel' pattern='[0-9]*' name='telefonoemergencia' placeholder='Ej. 8991234567' minlength='10' maxlength='10' required='' value=telefonoemergencia)
-    .row
-      label(for='dequieneseltelefono') ¿De quién es el teléfono?  
-        span(style="color: red;") *
-      input#input011.input-field(type='text' name='dequieneseltelefono' placeholder='Ej. Papá, mamá, hermanos, etc...' required='' value=dequieneseltelefono)
-    .row
-      label(for='telefonoemergencia2') Teléfono de emergencia 2
-      input#input11.input-field(type='tel' pattern='[0-9]*' name='telefonoemergencia2' placeholder='Ej. 8991234567' minlength='10' maxlength='10' value=telefonoemergencia2)
-    .row
-      label(for='dequieneseltelefono2') ¿De quién es el teléfono? 
-      input#input011.input-field(type='text' name='dequieneseltelefono2' placeholder='Ej. Papá, mamá, hermanos, etc...' value=dequieneseltelefono2)
-    .botondiv
-      button.submit-button(type='submit') Enviar 
-script(src='include/footer.js')
-script(src='https://code.jquery.com/jquery-3.6.0.min.js')
-script.
-  function updateAreaOptions(areaValue) {
-    const carrera = $('#input6').val();
-    const areas = {
-      'Mecatrónica': [
-        'TSU EN MECATRÓNICA, ÁREA SISTEMAS DE MANUFACTURA FLEXIBLE',
-        'TSU EN MECATRÓNICA, ÁREA AUTOMATIZACIÓN',
-        'TSU EN MECATRÓNICA, ÁREA INSTALACIONES ELÉCTRICAS EFICIENTES',
-        'ING. EN MECATRÓNICA'
-      ],
-      'Procesos y Operaciones Industriales': [
-        'TSU EN PROCESOS INDUSTRIALES, ÁREA MANUFACTURA',
-        'TSU EN PROCESOS INDUSTRIALES, ÁREA PLÁSTICOS',
-        'ING. EN PROCESOS Y OPERACIONES INDUSTRIALES'
-      ],
-      'Energías Renovables': [
-        'TSU EN ENERGÍAS RENOVABLES, ÁREA CALIDAD Y AHORRO DE ENERGÍA',
-        'ING. EN ENERGÍAS RENOVABLES'
-      ],
-      'Mantenimiento Industrial': [
-        'TSU EN MANTENIMIENTO, ÁREA INDUSTRIAL',
-        'TSU EN MANTENIMIENTO, ÁREA MAQUINARIA PESADA',
-        'TSU EN MANTENIMIENTO, ÁREA REFRIGERACIÓN',
-        'TSU EN MANTENIMIENTO, ÁREA PETRÓLEO',
-        'ING. EN MANTENIMIENTO INDUSTRIAL'
-      ],
-      'Administracion': [
-        'TSU EN ADMINISTRACIÓN, ÁREA FORMULACIÓN Y EVALUACIÓN DE PROYECTOS',
-        'TSU EN ADMINISTRACIÓN, ÁREA CAPITAL HUMANO',
-        'LIC. EN GESTIÓN DE NEGOCIOS Y PROYECTOS',
-        'LIC. EN GESTIÓN DE CAPITAL HUMANO'
-      ],
-      'Tecnologías de la Información': [
-        'TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES',
-        'TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA DESARROLLO DE SOFTWARE MULTIPLATAFORMA',
-        'ING. EN DESARROLLO Y GESTIÓN DE SOFTWARE',
-        'ING. EN ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES'
-      ]
-    };
+  
+  .section.container
 
-    const areaSelect = $('#input7');
-    areaSelect.empty();
+    .back-next_buttons_container
+      a(href='/tutorias')
+        button.regresar
+          img.regresar_img(src='img/back.png', alt='')
+      a(href='/academicos')
+        button.regresar
+          img.regresar_img(src='img/next.png', alt='')
+    .entrevista_incial_title_container 
+      h1.entrevista_inicial_title #{heading}
+      span.required_text * Campos requeridos
 
-    areas[carrera].forEach((area) => {
-      const isSelected = area === areaValue;
-      areaSelect.append($('<option>', { value: area, text: area, selected: isSelected }));
+    .entrevista_inicial_form_container
+      form.student_info_form(action='/guardarPersonales' method='post')
+        .entrevista_inicial_inputs_field
+          label(for='apellidoPaterno') Apellido paterno
+            span.required_inputs * 
+          input.entrevista_inicial_inputs(type='text' name='apellidoPaterno' readonly="readonly" placeholder='Apellido Paterno' required='' value=apellidoPaterno)
+        .entrevista_inicial_inputs_field
+          label(for='apellidoMaterno') Apellido materno
+            span.required_inputs * 
+          input.entrevista_inicial_inputs(type='text' name='apellidoMaterno' readonly="readonly" placeholder='Apellido materno' required='' value=apellidoMaterno)
+        .entrevista_inicial_inputs_field
+          label(for='nombre') Nombre
+            span.required_inputs * 
+          input.entrevista_inicial_inputs(type='text' name='nombre' readonly="readonly" placeholder='Nombre' required='' value=nombre)
+        .entrevista_inicial_inputs_field
+          label(for='fechadenacimiento') Fecha de nacimiento
+            span.required_inputs *
+          input.entrevista_inicial_inputs(type='date' name='fechadenacimiento' placeholder='Fecha de nacimiento' required='' value=fechadenacimiento ? fechadenacimiento.toISOString().substr(0, 10) : '')
+        .entrevista_inicial_inputs_field
+          label(for='email') Correo institucional
+            span.required_inputs *
+          input.entrevista_inicial_inputs(type='email' name='email' placeholder='Correo institucional' required='' value=email)
+        .entrevista_inicial_inputs_field
+          label(for='matricula') Matrícula
+            span.required_inputs *
+          input.entrevista_inicial_inputs(type='text' name='matricula' readonly="readonly" placeholder='Matricula' required='' value=matricula)
+        .entrevista_inicial_inputs_field
+          label(for='carrera') Carrera
+            span.required_inputs *
+          select#input6.entrevista_inicial_inputs(type='text' name='carrera' placeholder='Correo institucional' required='')
+            option(value='' selected) Elija su carrera
+            option(value='Mecatrónica' selected=carrera === 'Mecatrónica') Mecatrónica
+            option(value='Procesos y Operaciones Industriales' selected=carrera === 'Procesos y Operaciones Industriales') Procesos y Operaciones Industriales
+            option(value='Energías Renovables' selected=carrera === 'Energías Renovables') Energías Renovables
+            option(value='Mantenimiento Industrial' selected=carrera === 'Mantenimiento Industrial') Mantenimiento Industrial
+            option(value='Administracion' selected=carrera === 'Administracion') Administracion
+            option(value='Tecnologías de la Información' selected=carrera === 'Tecnologías de la Información') Tecnologías de la Información
+        .entrevista_inicial_inputs_field
+          label(for='area') Área
+            span.required_inputs *
+          select#input7.entrevista_inicial_inputs(type='text' name='area' placeholder='Área' required='')
+            option(value='' selected) Elija su área
+            option(value='TSU EN MECATRÓNICA, ÁREA SISTEMAS DE MANUFACTURA FLEXIBLE' selected=area === 'TSU EN MECATRÓNICA, ÁREA SISTEMAS DE MANUFACTURA FLEXIBLE') TSU EN MECATRÓNICA, ÁREA SISTEMAS DE MANUFACTURA FLEXIBLE
+            option(value='TSU EN MECATRÓNICA, ÁREA AUTOMATIZACIÓN' selected=area === 'TSU EN MECATRÓNICA, ÁREA AUTOMATIZACIÓN') TSU EN MECATRÓNICA, ÁREA AUTOMATIZACIÓN
+            option(value='TSU EN MECATRÓNICA, ÁREA INSTALACIONES ELÉCTRICAS EFICIENTES' selected=area === 'TSU EN MECATRÓNICA, ÁREA INSTALACIONES ELÉCTRICAS EFICIENTES') TSU EN MECATRÓNICA, ÁREA INSTALACIONES ELÉCTRICAS EFICIENTES
+            option(value='ING. EN MECATRÓNICA' selected=area === 'ING. EN MECATRÓNICA') ING. EN MECATRÓNICA
+            option(value='TSU EN PROCESOS INDUSTRIALES, ÁREA MANUFACTURA' selected=area === 'TSU EN PROCESOS INDUSTRIALES, ÁREA MANUFACTURA') TSU EN PROCESOS INDUSTRIALES, ÁREA MANUFACTURA
+            option(value='TSU EN PROCESOS INDUSTRIALES, ÁREA PLÁSTICOS' selected=area === 'TSU EN PROCESOS INDUSTRIALES, ÁREA PLÁSTICOS') TSU EN PROCESOS INDUSTRIALES, ÁREA PLÁSTICOS
+            option(value='ING. EN PROCESOS Y OPERACIONES INDUSTRIALES' selected=area === 'ING. EN PROCESOS Y OPERACIONES INDUSTRIALES') ING. EN PROCESOS Y OPERACIONES INDUSTRIALES
+            option(value='TSU EN ENERGÍAS RENOVABLES, ÁREA CALIDAD Y AHORRO DE ENERGÍA' selected=area === 'TSU EN ENERGÍAS RENOVABLES, ÁREA CALIDAD Y AHORRO DE ENERGÍA') TSU EN ENERGÍAS RENOVABLES, ÁREA CALIDAD Y AHORRO DE ENERGÍA
+            option(value='ING. EN ENERGÍAS RENOVABLES' selected=area === 'ING. EN ENERGÍAS RENOVABLES') ING. EN ENERGÍAS RENOVABLES
+            option(value='TSU EN MANTENIMIENTO, ÁREA INDUSTRIAL' selected=area === 'TSU EN MANTENIMIENTO, ÁREA INDUSTRIAL') TSU EN MANTENIMIENTO, ÁREA INDUSTRIAL
+            option(value='TSU EN MANTENIMIENTO, ÁREA MAQUINARIA PESADA' selected=area === 'TSU EN MANTENIMIENTO, ÁREA MAQUINARIA PESADA') TSU EN MANTENIMIENTO, ÁREA MAQUINARIA PESADA
+            option(value='TSU EN MANTENIMIENTO, ÁREA REFRIGERACIÓN' selected=area === 'TSU EN MANTENIMIENTO, ÁREA REFRIGERACIÓN') TSU EN MANTENIMIENTO, ÁREA REFRIGERACIÓN
+            option(value='TSU EN MANTENIMIENTO, ÁREA PETRÓLEO' selected=area === 'TSU EN MANTENIMIENTO, ÁREA PETRÓLEO') TSU EN MANTENIMIENTO, ÁREA PETRÓLEO
+            option(value='ING. EN MANTENIMIENTO INDUSTRIAL' selected=area === 'ING. EN MANTENIMIENTO INDUSTRIAL') ING. EN MANTENIMIENTO INDUSTRIAL
+            option(value='TSU EN ADMINISTRACIÓN, ÁREA FORMULACIÓN Y EVALUACIÓN DE PROYECTOS' selected=area === 'TSU EN ADMINISTRACIÓN, ÁREA FORMULACIÓN Y EVALUACIÓN DE PROYECTOS') TSU EN ADMINISTRACIÓN, ÁREA FORMULACIÓN Y EVALUACIÓN DE PROYECTOS
+            option(value='TSU EN ADMINISTRACIÓN, ÁREA CAPITAL HUMANO' selected=area === 'TSU EN ADMINISTRACIÓN, ÁREA CAPITAL HUMANO') TSU EN ADMINISTRACIÓN, ÁREA CAPITAL HUMANO
+            option(value='LIC. EN GESTIÓN DE NEGOCIOS Y PROYECTOS' selected=area === 'LIC. EN GESTIÓN DE NEGOCIOS Y PROYECTOS') LIC. EN GESTIÓN DE NEGOCIOS Y PROYECTOS
+            option(value='LIC. EN GESTIÓN DE CAPITAL HUMANO' selected=area === 'LIC. EN GESTIÓN DE CAPITAL HUMANO') LIC. EN GESTIÓN DE CAPITAL HUMANO
+            option(value='TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES' selected=area === 'TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES') TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES
+            option(value='TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA DESARROLLO DE SOFTWARE MULTIPLATAFORMA' selected=area === 'TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA DESARROLLO DE SOFTWARE MULTIPLATAFORMA') TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA DESARROLLO DE SOFTWARE MULTIPLATAFORMA
+            option(value='ING. EN DESARROLLO Y GESTIÓN DE SOFTWARE' selected=area === 'ING. EN DESARROLLO Y GESTIÓN DE SOFTWARE') ING. EN DESARROLLO Y GESTIÓN DE SOFTWARE
+            option(value='ING. EN ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES' selected=area === 'ING. EN ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES') ING. EN ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES
+
+        .entrevista_inicial_inputs_field
+          label(for='grado') Grado
+            span.required_inputs *
+          select.entrevista_inicial_inputs(type='text' name='grado' placeholder='Grado' required='' value=grado)
+            option(value='') Elija su grado 
+            option(value='0' selected=grado === '0') 0
+            option(value='1' selected=grado === '1') 1
+            option(value='2' selected=grado === '2') 2
+            option(value='3' selected=grado === '3') 3
+            option(value='4' selected=grado === '4') 4
+            option(value='5' selected=grado === '5') 5
+            option(value='6' selected=grado === '6') 6
+            option(value='7' selected=grado === '7') 7
+            option(value='8' selected=grado === '8') 8
+            option(value='9' selected=grado === '9') 9
+            option(value='10' selected=grado === '10') 10
+            option(value='11' selected=grado === '11') 11
+        .entrevista_inicial_inputs_field
+          label(for='grupo') Grupo:
+            span.required_inputs *
+          select.entrevista_inicial_inputs(type='text' name='grupo' placeholder='Grupo' required='' value=grupo)
+            option(value='') Elija su grupo 
+            option(value='A' selected=grupo === 'A') A
+            option(value='B' selected=grupo === 'B') B
+            option(value='C' selected=grupo === 'C') C
+            option(value='D' selected=grupo === 'D') D
+            option(value='E' selected=grupo === 'E') E
+            option(value='F' selected=grupo === 'F') F
+            option(value='G' selected=grupo === 'G') G
+            option(value='H' selected=grupo === 'H') H
+            option(value='I' selected=grupo === 'I') I
+            option(value='J' selected=grupo === 'J') J
+            option(value='K' selected=grupo === 'K') K
+            option(value='L' selected=grupo === 'L') L
+            option(value='M' selected=grupo === 'M') M
+        .entrevista_inicial_inputs_field
+          label(for='telefono') Teléfono
+            span.required_inputs *
+          input.entrevista_inicial_inputs(type='tel' pattern='[0-9]*' name='telefono' placeholder='Ej. 8991234567' minlength='10' maxlength='10' required='' value=telefono)
+        .entrevista_inicial_inputs_field
+          label(for='sexo') Sexo
+            span.required_inputs *
+          select.entrevista_inicial_inputs(type='text' name='sexo' placeholder='' required='' value=sexo)
+            option(value='') Elija una opción
+            option(value='Masculino' selected=sexo === 'Masculino') Masculino
+            option(value='Femenino' selected=sexo === 'Femenino') Femenino
+        .entrevista_inicial_inputs_field
+          label(for='telefonoemergencia') Teléfono de emergencia  
+            span.required_inputs *
+          input.entrevista_inicial_inputs(type='tel' pattern='[0-9]*' name='telefonoemergencia' placeholder='Ej. 8991234567' minlength='10' maxlength='10' required='' value=telefonoemergencia)
+        .entrevista_inicial_inputs_field
+          label(for='dequieneseltelefono') ¿De quién es el teléfono?  
+            span.required_inputs *
+          input.entrevista_inicial_inputs(type='text' name='dequieneseltelefono' placeholder='Ej. Papá, mamá, hermanos, etc...' required='' value=dequieneseltelefono)
+        .entrevista_inicial_inputs_field
+          label(for='telefonoemergencia2') Teléfono de emergencia 2
+          input.entrevista_inicial_inputs(type='tel' pattern='[0-9]*' name='telefonoemergencia2' placeholder='Ej. 8991234567' minlength='10' maxlength='10' value=telefonoemergencia2)
+        .entrevista_inicial_inputs_field
+          label(for='dequieneseltelefono2') ¿De quién es el teléfono? 
+          input.entrevista_inicial_inputs(type='text' name='dequieneseltelefono2' placeholder='Ej. Papá, mamá, hermanos, etc...' value=dequieneseltelefono2)
+        .entrevista_inicial_button_container
+          button.submit-button.forms_button(type='submit') Enviar 
+    
+  script(src='https://code.jquery.com/jquery-3.6.0.min.js')
+  script.
+    function updateAreaOptions(areaValue) {
+      const carrera = $('#input6').val();
+      const areas = {
+        'Mecatrónica': [
+          'TSU EN MECATRÓNICA, ÁREA SISTEMAS DE MANUFACTURA FLEXIBLE',
+          'TSU EN MECATRÓNICA, ÁREA AUTOMATIZACIÓN',
+          'TSU EN MECATRÓNICA, ÁREA INSTALACIONES ELÉCTRICAS EFICIENTES',
+          'ING. EN MECATRÓNICA'
+        ],
+        'Procesos y Operaciones Industriales': [
+          'TSU EN PROCESOS INDUSTRIALES, ÁREA MANUFACTURA',
+          'TSU EN PROCESOS INDUSTRIALES, ÁREA PLÁSTICOS',
+          'ING. EN PROCESOS Y OPERACIONES INDUSTRIALES'
+        ],
+        'Energías Renovables': [
+          'TSU EN ENERGÍAS RENOVABLES, ÁREA CALIDAD Y AHORRO DE ENERGÍA',
+          'ING. EN ENERGÍAS RENOVABLES'
+        ],
+        'Mantenimiento Industrial': [
+          'TSU EN MANTENIMIENTO, ÁREA INDUSTRIAL',
+          'TSU EN MANTENIMIENTO, ÁREA MAQUINARIA PESADA',
+          'TSU EN MANTENIMIENTO, ÁREA REFRIGERACIÓN',
+          'TSU EN MANTENIMIENTO, ÁREA PETRÓLEO',
+          'ING. EN MANTENIMIENTO INDUSTRIAL'
+        ],
+        'Administracion': [
+          'TSU EN ADMINISTRACIÓN, ÁREA FORMULACIÓN Y EVALUACIÓN DE PROYECTOS',
+          'TSU EN ADMINISTRACIÓN, ÁREA CAPITAL HUMANO',
+          'LIC. EN GESTIÓN DE NEGOCIOS Y PROYECTOS',
+          'LIC. EN GESTIÓN DE CAPITAL HUMANO'
+        ],
+        'Tecnologías de la Información': [
+          'TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES',
+          'TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA DESARROLLO DE SOFTWARE MULTIPLATAFORMA',
+          'ING. EN DESARROLLO Y GESTIÓN DE SOFTWARE',
+          'ING. EN ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES'
+        ]
+      };
+
+      const areaSelect = $('#input7');
+      areaSelect.empty();
+
+      areas[carrera].forEach((area) => {
+        const isSelected = area === areaValue;
+        areaSelect.append($('<option>', { value: area, text: area, selected: isSelected }));
+      });
+    }
+
+    $('#input6').on('change', function () {
+      const currentAreaValue = $('#input7').val();
+      updateAreaOptions(currentAreaValue);
     });
-  }
 
-  $('#input6').on('change', function () {
     const currentAreaValue = $('#input7').val();
     updateAreaOptions(currentAreaValue);
-  });
-
-  const currentAreaValue = $('#input7').val();
-  updateAreaOptions(currentAreaValue);

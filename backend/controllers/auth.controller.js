@@ -59,7 +59,7 @@ const login = async (req, res) => {
                             username: admin.username,
                             role: admin.role,
                         });
-                        res.cookie("token", token, { httpOnly: true });
+                        res.cookie("token", token, { httpOnly: true })
                         res.status(200).json({ message: "Sesión iniciada correctamente!" });
                     } else {
                         res.status(400).json({ error: "La contraseña es incorrecta" });
@@ -77,13 +77,15 @@ const login = async (req, res) => {
 const logout = (req, res) => {
     const token = req.cookies.token; // Obtener el token de la cookie
 
-    if (!token) {
-        return res.redirect('/');
-    }
-
     try {
+
+        if (!token) {
+            return res.status(500).json({ error: "No hay un token" });
+        }
+
         res.clearCookie("token", { expires: new Date(0) }); // Eliminar la cookie de token
         res.redirect("/")
+
     } catch (error) {
         console.log(error);
         return res.status(500).json({ error: "Error al cerrar la sesión" });

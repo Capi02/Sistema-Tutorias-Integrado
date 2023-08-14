@@ -22,7 +22,7 @@ const input12 = document.getElementById('input12');
 function mostrarInputsal02Row() {
     if (input2.value === 'Otras') {
       // Mostrar el tercer input y recorrer los demás
-      inputsal02Row.style.display = 'flex'; // Mostrar el tercer input (por defecto estaba display: none;)
+      inputsal02Row.style.display = 'grid'; // Mostrar el tercer input (por defecto estaba display: none;)
       input02.setAttribute('required', 'required'); // Agregar el atributo 'required' al campo input7
       form.appendChild(inputaca01Row); // Mover el tercer input al final del form
     } else {
@@ -42,7 +42,7 @@ window.addEventListener('DOMContentLoaded', mostrarInputsal02Row);
 function mostrarInputsal11Row() {
     if (inputsal11.value === 'si') {
         // Mostrar el tercer input y recorrer los demás
-        inputsal12Row.style.display = 'flex'; // Mostrar el tercer input (por defecto estaba display: none;)
+        inputsal12Row.style.display = 'grid'; // Mostrar el tercer input (por defecto estaba display: none;)
         input12.setAttribute('required', 'required');
         form.appendChild(inputsal12Row); // Mover el tercer input al final del form
     } else {
@@ -62,7 +62,7 @@ window.addEventListener('DOMContentLoaded', mostrarInputsal11Row);
 function mostrarInputsal9Row() {
     if (inputsal9.value === 'si') {
         // Mostrar el tercer input y recorrer los demás
-        inputsal10Row.style.display = 'flex'; // Mostrar el tercer input (por defecto estaba display: none;)
+        inputsal10Row.style.display = 'grid'; // Mostrar el tercer input (por defecto estaba display: none;)
         input10.setAttribute('required', 'required');
         form.appendChild(inputsal10Row); // Mover el tercer input al final del form
     } else {
@@ -82,7 +82,7 @@ window.addEventListener('DOMContentLoaded', mostrarInputsal9Row);
 function mostrarInputsal7Row() {
     if (inputsal7.value === 'si') {
         // Mostrar el tercer input y recorrer los demás
-        inputsal8Row.style.display = 'flex'; // Mostrar el tercer input (por defecto estaba display: none;)
+        inputsal8Row.style.display = 'grid'; // Mostrar el tercer input (por defecto estaba display: none;)
         input8.setAttribute('required', 'required');
         form.appendChild(inputsal8Row); // Mover el tercer input al final del form
     } else {
@@ -102,7 +102,7 @@ window.addEventListener('DOMContentLoaded', mostrarInputsal7Row);
 function mostrarInputsal5Row() {
     if (inputsal5.value === 'si') {
         // Mostrar el tercer input y recorrer los demás
-        inputsal6Row.style.display = 'flex'; // Mostrar el tercer input (por defecto estaba display: none;)
+        inputsal6Row.style.display = 'grid'; // Mostrar el tercer input (por defecto estaba display: none;)
         input6.setAttribute('required', 'required');
         form.appendChild(inputsal6Row); // Mover el tercer input al final del form
     } else {
@@ -122,7 +122,7 @@ window.addEventListener('DOMContentLoaded', mostrarInputsal5Row);
 function mostrarInputsal3Row() {
     if (inputsal3.value === 'si') {
         // Mostrar el tercer input y recorrer los demás
-        inputsal4Row.style.display = 'flex'; // Mostrar el tercer input (por defecto estaba display: none;)
+        inputsal4Row.style.display = 'grid'; // Mostrar el tercer input (por defecto estaba display: none;)
         input4.setAttribute('required', 'required');
         form.appendChild(inputsal4Row); // Mover el tercer input al final del form
     } else {
@@ -143,7 +143,7 @@ function mostrarInputsal2Row() {
     const inputsal2Row = document.getElementById('inputsal2Row');
     if (inputsal1.value === 'si') {
         // Mostrar el tercer input y recorrer los demás
-        inputsal2Row.style.display = 'flex'; // Mostrar el tercer input (por defecto estaba display: none;)
+        inputsal2Row.style.display = 'grid'; // Mostrar el tercer input (por defecto estaba display: none;)
         input2.setAttribute('required', 'required');
         form.appendChild(inputsal2Row); // Mover el tercer input al final del form
     } else {

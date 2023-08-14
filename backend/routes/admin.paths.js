@@ -61,4 +61,16 @@ router.get("/agregar", authenticateToken, authenticateRole("admin"), (req, res) 
     res.render("admin/agregarUsuarios", locals)
 })
 
+router.get("/grupos", authenticateToken, authenticateRole("admin"), (req, res) => {
+    const {username, role} = req.user;
+
+    const locals = {
+        title: "Grupos",
+        username
+    }
+
+    res.render("admin/grupos", locals)
+})
+
+
 module.exports = router;

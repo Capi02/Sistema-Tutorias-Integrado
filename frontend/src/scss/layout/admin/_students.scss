@@ -36,14 +36,6 @@
   margin-bottom: 1rem;
   margin-right: 3rem;
 
-  .add_user_label {
-    display: inline-block;
-    margin-bottom: 0.8rem;
-    color: #000;
-    text-transform: uppercase;
-    font-size: 1.3rem;
-    font-weight: 600;
-  }
 
   .add_user_input {
     width: 100%;
@@ -60,6 +52,15 @@
     }
   }
 }
+
+  .add_user_label {
+    display: inline-block;
+    margin-bottom: 0.8rem;
+    color: #000;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
 
 .register_buttons_container {
   display: flex;
@@ -149,7 +150,7 @@
     border: 1.5px solid black;
 
     &:focus {
-      border: 2px solid v.$uttn_green;
+      border: 3px solid v.$uttn_green;
       outline: none;
     }
   }
