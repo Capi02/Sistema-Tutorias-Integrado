@@ -9,7 +9,7 @@ const student = async (req, res) => {
     try {
         const { id } = req.params;
 
-        const studentInformation = await Student.findById({ _id: id }).select("matricula nombre apellidoPaterno apellidoMaterno username password")
+        const studentInformation = await Student.findById({ _id: id })
 
         if (studentInformation) {
             return res.status(200).json({ studentInformation })

@@ -21,6 +21,7 @@ const login = async (req, res) => {
                     role: student.role,
                 });
                 res.cookie("token", token, { httpOnly: true });
+                process.env.USER_ID = student._id;
                 res.status(200).json({ message: "Sesión iniciada correctamente!" });
             } else {
                 
