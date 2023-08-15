@@ -1,0 +1,44 @@
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
+
+
+
+.create_group_button_container{
+    padding: 2rem;
+    width: 45rem;
+    background-color: v.$login_color;
+    border: 1.5px solid  v.$structure_border;
+    margin-bottom: 4rem;
+}
+
+.groups_title{
+    font-size: 2.5rem;
+    text-align: start;
+    margin-bottom: 2rem;
+}
+
+.groups_table_container{
+    width: 45rem;
+
+     #groups_table{
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        width: 45rem ;
+     }
+}
+
+
+.create_group_field{
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.create_groups_button_container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+

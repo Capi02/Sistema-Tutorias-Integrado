@@ -5,7 +5,7 @@ const router = Router();
 
 router.post("/create", createGroup);
 router.get("/groups", showGroups);
-router.delete("/group/:id", deleteGroup);
+router.delete("/delete/:id", deleteGroup);
 
 
 module.exports = router;

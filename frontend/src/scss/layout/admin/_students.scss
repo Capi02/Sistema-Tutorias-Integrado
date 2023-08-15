@@ -35,32 +35,30 @@
   height: 9rem;
   margin-bottom: 1rem;
   margin-right: 3rem;
-
-
-  .add_user_input {
-    width: 100%;
-    height: 3.6rem;
-    border: none;
-    border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);
-    padding: 0;
-    font-size: 1.6rem;
-    background-color: transparent;
-
-    &:focus{
-      outline: none;
-      border-bottom: 1.5px solid v.$uttn_green;
-    }
-  }
 }
 
-  .add_user_label {
-    display: inline-block;
-    margin-bottom: 0.8rem;
-    color: #000;
-    text-transform: uppercase;
-    font-size: 1.3rem;
-    font-weight: 600;
+.add_user_label {
+  display: inline-block;
+  color: #000;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.add_user_input {
+  width: 100%;
+  height: 3.6rem;
+  border: none;
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);
+  padding: 0;
+  font-size: 1.6rem;
+  background-color: transparent;
+
+  &:focus {
+    outline: none;
+    border-bottom: 1.5px solid v.$uttn_green;
   }
+}
 
 .register_buttons_container {
   display: flex;
@@ -93,7 +91,6 @@
   justify-content: right;
   gap: 1rem;
   margin: 3rem;
-
 
   .excel_label {
     color: v.$uttn_green;

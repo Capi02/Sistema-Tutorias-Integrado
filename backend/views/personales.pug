@@ -52,6 +52,7 @@ block contenido
             option(value='Mantenimiento Industrial' selected=carrera === 'Mantenimiento Industrial') Mantenimiento Industrial
             option(value='Administracion' selected=carrera === 'Administracion') Administracion
             option(value='Tecnologías de la Información' selected=carrera === 'Tecnologías de la Información') Tecnologías de la Información
+            option(value='Logística' selected=carrera === 'Logística') Logística
         .entrevista_inicial_inputs_field
           label(for='area') Área
             span.required_inputs *
@@ -64,6 +65,7 @@ block contenido
             option(value='TSU EN PROCESOS INDUSTRIALES, ÁREA MANUFACTURA' selected=area === 'TSU EN PROCESOS INDUSTRIALES, ÁREA MANUFACTURA') TSU EN PROCESOS INDUSTRIALES, ÁREA MANUFACTURA
             option(value='TSU EN PROCESOS INDUSTRIALES, ÁREA PLÁSTICOS' selected=area === 'TSU EN PROCESOS INDUSTRIALES, ÁREA PLÁSTICOS') TSU EN PROCESOS INDUSTRIALES, ÁREA PLÁSTICOS
             option(value='ING. EN PROCESOS Y OPERACIONES INDUSTRIALES' selected=area === 'ING. EN PROCESOS Y OPERACIONES INDUSTRIALES') ING. EN PROCESOS Y OPERACIONES INDUSTRIALES
+            option(value='MII. EN MANUFACTURA AVANZADA' selected=area === 'MII. EN MANUFACTURA AVANZADA') MII. EN MANUFACTURA AVANZADA
             option(value='TSU EN ENERGÍAS RENOVABLES, ÁREA CALIDAD Y AHORRO DE ENERGÍA' selected=area === 'TSU EN ENERGÍAS RENOVABLES, ÁREA CALIDAD Y AHORRO DE ENERGÍA') TSU EN ENERGÍAS RENOVABLES, ÁREA CALIDAD Y AHORRO DE ENERGÍA
             option(value='ING. EN ENERGÍAS RENOVABLES' selected=area === 'ING. EN ENERGÍAS RENOVABLES') ING. EN ENERGÍAS RENOVABLES
             option(value='TSU EN MANTENIMIENTO, ÁREA INDUSTRIAL' selected=area === 'TSU EN MANTENIMIENTO, ÁREA INDUSTRIAL') TSU EN MANTENIMIENTO, ÁREA INDUSTRIAL
@@ -79,6 +81,9 @@ block contenido
             option(value='TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA DESARROLLO DE SOFTWARE MULTIPLATAFORMA' selected=area === 'TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA DESARROLLO DE SOFTWARE MULTIPLATAFORMA') TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA DESARROLLO DE SOFTWARE MULTIPLATAFORMA
             option(value='ING. EN DESARROLLO Y GESTIÓN DE SOFTWARE' selected=area === 'ING. EN DESARROLLO Y GESTIÓN DE SOFTWARE') ING. EN DESARROLLO Y GESTIÓN DE SOFTWARE
             option(value='ING. EN ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES' selected=area === 'ING. EN ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES') ING. EN ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES
+            option(value='TSU EN LOGÍSTICA ÁREA CADENA DE SUMINISTROS' selected=area === 'TSU EN LOGÍSTICA ÁREA CADENA DE SUMINISTROS') TSU EN LOGÍSTICA ÁREA CADENA DE SUMINISTROS
+            option(value='TSU EN LOGÍSTICA ÁREA TRANSPORTE TERRESTRE' selected=area === 'TSU EN LOGÍSTICA ÁREA TRANSPORTE TERRESTRE') TSU EN LOGÍSTICA ÁREA TRANSPORTE TERRESTRE
+            option(value='LIC. EN DISEÑO Y GESTIÓN EN REDES LOGÍSTICAS' selected=area === 'LIC. EN DISEÑO Y GESTIÓN EN REDES LOGÍSTICAS') LIC. EN DISEÑO Y GESTIÓN EN REDES LOGÍSTICAS
 
         .entrevista_inicial_inputs_field
           label(for='grado') Grado
@@ -157,7 +162,8 @@ block contenido
         'Procesos y Operaciones Industriales': [
           'TSU EN PROCESOS INDUSTRIALES, ÁREA MANUFACTURA',
           'TSU EN PROCESOS INDUSTRIALES, ÁREA PLÁSTICOS',
-          'ING. EN PROCESOS Y OPERACIONES INDUSTRIALES'
+          'ING. EN PROCESOS Y OPERACIONES INDUSTRIALES',
+          'MII. EN MANUFACTURA AVANZADA'
         ],
         'Energías Renovables': [
           'TSU EN ENERGÍAS RENOVABLES, ÁREA CALIDAD Y AHORRO DE ENERGÍA',
@@ -181,6 +187,11 @@ block contenido
           'TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA DESARROLLO DE SOFTWARE MULTIPLATAFORMA',
           'ING. EN DESARROLLO Y GESTIÓN DE SOFTWARE',
           'ING. EN ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES'
+        ],
+        'Logística': [
+          'TSU EN LOGÍSTICA ÁREA CADENA DE SUMINISTROS',
+          'TSU EN LOGÍSTICA ÁREA TRANSPORTE TERRESTRE',
+          'LIC. EN DISEÑO Y GESTIÓN EN REDES LOGÍSTICAS'
         ]
       };
 
