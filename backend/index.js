@@ -9,6 +9,7 @@ const usersRoutes = require("./routes/users.routes.js")
 const registerRoutes = require("./routes/register.routes.js");
 const adminPaths = require("./routes/admin.paths.js")
 const excelRoutes = require("./routes/excel.routes.js");
+const groupsRoutes = require("./routes/groups.routes.js");
 const bodyParser = require("body-parser");
 const path = require("path");
 const TOKEN_SECRET = require("./config.js");
@@ -25,12 +26,14 @@ app.set("view engine", "pug");
 
 app.use("/", pathsRoutes);
 app.use("/admin", adminPaths);
+
+
 app.use("/api/auth", authRoutes);
 app.use("/api/register", registerRoutes);
 app.use("/api", usersRoutes);
 app.use("/api/upload/excel", excelRoutes);
+app.use("/api/group", groupsRoutes)
 
-  
 
 app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, '../frontend/public')));
