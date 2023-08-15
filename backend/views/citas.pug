@@ -1,19 +1,96 @@
 extends ./layout/index
+
 block contenido
-    section.container 
-        h2 Citas UTT
-    #calendar
-    form(action="/cita" method="post")
-        label(for="title") Titulo
-        input(type="text" id="title" name="title" required)
-        label(for="start") Hora de Inicio
-        input(type="datetime-local" id="start" name="start" required)
-        label(for="end") Hora de Fin
-        input(type="datetime-local" id="end" name="end" required)
-        button(type="submit") Crear Cita
+    section.container
+        br
+        br
+        h2 Citas
+        #calendar
+        #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+            .modal-dialog(role='document')
+                .modal-content
+                    .modal-header
+                        h5.modal-title#myModalLabel Agendar Cita
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                            span(aria-hidden='true') &times;
+                    .modal-body
+                        form
+                            .form-group
+                                label(for='title') Alumno
+                                input#ID_Alumno.form-control(type='text' name='ID_Alumno' placeholder='Ingrese el nombre del alumno...' required='' data-parsley-type='title' data-parsley-trigger='keyup')
+                            .form-group
+                                label(for='date') Hora de Inicio
+                                input#Hora_Inicio.form-control(type='time' name='Hora_Inicio' required='' data-parsley-type='datetime' data-parsley-trigger='keyup')
+                            .form-group
+                                label(for='date') Hora Final
+                                input#Hora_Final.form-control(type='time' name='Hora_Final' required='' data-parsley-type='datetime' data-parsley-trigger='keyup')
+                            .form-group
+                                label(for='date') Fecha Cita
+                                input#Fecha_Cita.form-control(type='date' name='Fecha_Cita' required='' data-parsley-type='date' data-parsley-trigger='keyup')
+                            .form-group
+                                label(for='title') Estado de Cita
+                                select.form-select(aria-label='Default select example')
+                                    option(value='' disabled='' selected='') Sin asignar
+                            .form-group
+                                label(for='date') Fecha de Elaboracion de Cita
+                                input#Fecha_Elaboracion_Cita.form-control(type='date' name='Fecha_Elaboracion_Cita' required='' data-parsley-type='date' data-parsley-trigger='keyup')
+                            .form-group
+                                label(for='title') Psicologo a cargo
+                                select.form-select(aria-label='Default select example')
+                                    option(value='' disabled='' selected='') Psicologo a cargo
+                    .modal-footer
+                        button.btn.btn-primary(type='submit') Submit
+                        button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js')
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js')
+
     script.
-        $(document).ready(function() {
+      $(document).ready(function() {
         $('#calendar').fullCalendar({
-            events: !{JSON.stringify(citas)}
+          header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+          },
+          buttonText: {
+            today: 'Hoy',
+            month: 'Mes',
+            week: 'Semana',
+            day: 'Dia',
+          },
+          selectable: true,
+          select: function(start, end) {
+            var today = moment().startOf('day');
+            var minTime = moment().startOf('day').add(8, 'hours');
+            var maxTime = moment().startOf('day').add(20, 'hours');
+            if (start.isBefore(today)) {
+              alert('No puedes seleccionar una fecha anterior al día actual.');
+              $('#calendar').fullCalendar('unselect');
+            } else {
+              $('#myModal').modal('show');
+            }
+          },
+          monthNames: [
+            'Enero',
+            'Febrero',
+            'Marzo',
+            'Abril',
+            'Mayo',
+            'Junio',
+            'Julio',
+            'Agosto',
+            'Septiembre',
+            'Octubre',
+            'Noviembre',
+            'Diciembre'
+          ]
         });
-    });
+      });

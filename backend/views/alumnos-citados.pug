@@ -1,29 +1,28 @@
 extends ./layout/index
+
 block contenido
-  section.container 
+    section.container 
+    br
+    br
     h2 Alumnos Citados
     table
-thead
-  tr
-    th Nombre del Alumno
-    th Carrera
-    th Área
-    th Número de Citas
-    th Nivel Escolar
-    th Estado de Cita
-    th Acciones
+        thead
+            tr
+            th Nombre del Alumno
+            th Carrera
+            th Área
+            th Número de Citas
+            th Nivel Escolar
+            th Estado de Cita
+            th Acciones
+        tbody
+            tr
+                td 
+                td 
+                td 
+                td
+                td 
+                td
+                button.editar(type='button') Modificar
+                button.eliminar(type='button') Eliminar
 
-tbody
-    each alumno in alumnos
-    tr
-        td #{alumno.nombre}
-        td #{alumno.carrera}
-        td #{alumno.area}
-        td #{alumno.numCitas}
-        td #{alumno.nivelEscolar}
-        td #{alumno.estadoCita}
-        td
-        button.editar(type='button', data-id=alumno.id) Modificar
-        button.eliminar(type='button', data-id=alumno.id) Eliminar
-
-    script.

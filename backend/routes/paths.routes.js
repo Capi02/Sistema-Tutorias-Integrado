@@ -144,6 +144,18 @@ router.get("/cita-psicologia", authenticateToken, ( req, res) => {
     res.render("citas", locals)
 })
 
+router.get("/alumnos-citados", authenticateToken, ( req, res) => {
+    const {username, role} = req.user;
+
+    const locals = {
+        title: "Alumnos citados",
+        username, 
+        role,
+    }
+
+    res.render("alumnos-citados", locals)
+})
+
 router.get("/actualizar-password", authenticateToken, (req, res) => {
     const { username, role } = req.user;
 
