@@ -1,4 +1,19 @@
 extends ./layout/index
 block contenido
     section.container 
-        h2 Citas
+        h2 Citas UTT
+    #calendar
+    form(action="/cita" method="post")
+        label(for="title") Titulo
+        input(type="text" id="title" name="title" required)
+        label(for="start") Hora de Inicio
+        input(type="datetime-local" id="start" name="start" required)
+        label(for="end") Hora de Fin
+        input(type="datetime-local" id="end" name="end" required)
+        button(type="submit") Crear Cita
+    script.
+        $(document).ready(function() {
+        $('#calendar').fullCalendar({
+            events: !{JSON.stringify(citas)}
+        });
+    });
