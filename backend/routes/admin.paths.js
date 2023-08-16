@@ -83,7 +83,7 @@ router.get("/pat", authenticateToken, authenticateRole("admin"), (req, res) => {
     res.render("admin/pat", locals)
 })
 
-router.get("/citas-admin", authenticateToken, ( req, res) => {
+router.get("/citas-admin", authenticateToken, authenticateRole("admin"), ( req, res) => {
     const {username, role} = req.user;
 
     const locals = {

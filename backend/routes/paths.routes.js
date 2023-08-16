@@ -168,7 +168,7 @@ router.get("/pagina-error", authenticateToken, (req, res) => {
     res.render("error", locals)
 })
 
-router.get("/citas", authenticateToken, async (req, res) => {
+router.get("/cita-psicologia", authenticateToken, async (req, res) => {
 
     try {
         if (req.user.username) {
@@ -176,6 +176,7 @@ router.get("/citas", authenticateToken, async (req, res) => {
             const student = await Student.findOne({ username: req.user.username });
             if (student) {
 
+                
                 res.render("citas", {
                     heading: "Datos personales alumnos",
                     apellidoPaterno: student.apellidoPaterno,
@@ -360,6 +361,42 @@ router.get("/salud", authenticateToken, async (req, res) => {
     }
 });
 
+router.post("/guardarCita", authenticateToken, async (req, res) => {
+    // Verificar si el usuario ha iniciado sesión
+    console.log(req.body);
+    if (req.user.username) {
+        // Obtener el nombre de usuario del formulario de inicio de sesión
+        const username = req.user.username;
+
+        // Buscar al usuario por el nombre de usuario
+        try {
+            const student = await Student.findOne({ username });
+            if (student) {
+                // Crear el objeto "aspectosPersonales" solo si los datos son enviados
+                student.citaAlumno.sexo = req.body.sexo;
+                student.citaAlumno.email = req.body.email;
+                student.citaAlumno.carrera = req.body.carrera;
+                student.citaAlumno.area = req.body.area;
+                student.citaAlumno.grupo = req.body.grupo;
+                student.citaAlumno.grado = req.body.grado;
+                student.citaAlumno.telefono = req.body.telefono;
+                await student.save();
+
+                console.log("Datos guardados exitosamente en la base de datos.");
+                res.redirect("/citas");
+            } else {
+                console.log("Usuario no encontrado en la base de datos.");
+                res.status(404).send("Usuario no encontrado");
+            }
+        } catch (error) {
+            console.error("Error al guardar los datos:", error);
+            res.redirect("/citas");
+        }
+    } else {
+        res.redirect("/"); // Redirigir al inicio de sesión si el usuario no ha iniciado sesión
+    }
+});
+
 // Ruta para guardar los datos enviados desde el formulario
 router.post("/guardarPersonales", authenticateToken, async (req, res) => {
     // Verificar si el usuario ha iniciado sesión
@@ -527,6 +564,7 @@ router.post("/guardarSalud", authenticateToken, async (req, res) => {
         res.redirect("/"); // Redirigir al inicio de sesión si el usuario no ha iniciado sesión
     }
 });
+
 
 
 module.exports = router;

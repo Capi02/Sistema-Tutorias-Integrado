@@ -1,5 +1,4 @@
 extends ./layout/index
-
 block contenido
     section.container
         br
@@ -21,7 +20,7 @@ block contenido
                           .entrevista_inicial_inputs_field
                             label(for='apellidoPaterno') Apellido paterno
                               span.required_inputs * 
-                            input.entrevista_inicial_inputs(type='text' name='apellidoPaterno' placeholder='Apellido Paterno' required='' value=apellidoPaterno)
+                            input.entrevista_inicial_inputs(type='text' name='apellidoPaterno' readonly="readonly" placeholder='Apellido Paterno' required='' value=apellidoPaterno)
                           .entrevista_inicial_inputs_field
                             label(for='apellidoMaterno') Apellido materno
                               span.required_inputs * 

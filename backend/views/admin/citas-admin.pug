@@ -3,7 +3,7 @@ extends ../layout/adminLayout
 block Content
     .content_container
       h1 Estudiantes Citados
-      table#students_table.table.display.cell-border.hover.row-border
+      table#citas_table.table.display.cell-border.hover.row-border
         thead
           tr
             th Matricula
@@ -15,7 +15,6 @@ block Content
             th Citas Pendientes
             th Citas Canceladas
             th Citas Aprobadas
-            th No. Citas
             th Acciones
         tbody
 
@@ -39,10 +38,18 @@ block Content
                 input.edit_input#edit_input_username(type="text" name="username" placeholder="Nombre Usuario")
                 label(for="edit_password") Contraseña:
                 input.edit_input#edit_input_password(type="password" name="password" placeholder="Contraseña")
+              .edit_field
+                label(for="edit_citasPendientes") Citas Pendientes:
+                input.edit_input#edit_input_citasPendientes(type="text" name="citasPendientes" placeholder="Citas Pendientes")
+              .edit_field
+                label(for="edit_citasAprobadas") Citas Aprobadas:
+                input.edit_input#edit_input_citasAprobadas(type="text" name="citasAprobadas" placeholder="Citas Aprobadas")
+              .edit_field
+                label(for="edit_citasCanceladas") Citas Canceladas:
+                input.edit_input#edit_input_citasCanceladas(type="text" name="citasCanceladas" placeholder="Citas Canceladas")
               .edit_buttons_container 
                 button.student_cancel_button(type="button") Cancelar
                 button.save_edit_button(type="button") Guardar Cambios
-    
     script(src="/api/students.js") 
     
 

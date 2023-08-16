@@ -42,6 +42,34 @@ function studentsTable(students) {
     });
 }
 
+function citasTable(students) {
+    console.log(students)
+    let table = new DataTable("#citas_table", {
+        responsive: true,
+        data: students,
+        columns: [
+            { data: 'matricula' },
+            { data: "apellidoPaterno" },
+            { data: "apellidoMaterno" },
+            { data: 'nombre' },
+            { data: 'username' },
+            { data: 'role' },
+            { data: 'citasAprobadas' },
+            { data: 'citasPendientes' },
+            { data: 'citasCanceladas' },
+            { // Agregamos una columna para las acciones
+                data: null,
+                render: function (data, type, row) {
+                    return `
+                <button class="citas_edit_button btn_edit" data-id="${data.id}">Editar</button>
+                <button class="citas_delete_button btn_delete" data-id="${data.id}">Eliminar</button>
+                `;
+                }
+            }
+        ],
+    });
+}
+
 function btnDelete() {
     document.addEventListener('click', function (event) {
         if (event.target.classList.contains('student_delete_button')) {

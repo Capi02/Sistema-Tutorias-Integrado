@@ -1,9 +1,6 @@
 extends ./layout/index
 block contenido
-
-  
   .section.container
-
     .back-next_buttons_container
       a(href='/tutorias')
         button.regresar
@@ -14,7 +11,6 @@ block contenido
     .entrevista_incial_title_container 
       h1.entrevista_inicial_title #{heading}
       span.required_text * Campos requeridos
-
     .entrevista_inicial_form_container
       form.student_info_form(action='/guardarPersonales' method='post')
         .entrevista_inicial_inputs_field
