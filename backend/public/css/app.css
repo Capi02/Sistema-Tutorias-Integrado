@@ -1249,6 +1249,245 @@ header {
   border: 2px solid #1ab192;
 }
 
+/*VISTA GENERAL*/
+.psico_sidebar_left {
+  width: 15%;
+  height: 100%;
+  background-color: darkgray;
+  float: left;
+  border: grey;
+  border-style: solid;
+  border-width: 2px;
+}
+
+#psico_sidebar_cal {
+  width: 15%;
+  height: 140%;
+  background-color: darkgray;
+  float: left;
+  border: grey;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.psico_svg-icon {
+  width: 1.5em;
+  height: 1.5em;
+  float: right;
+}
+
+.psico_svg-icon path,
+.psico_svg-icon polygon,
+.psico_svg-icon rect {
+  fill: black;
+}
+
+.psico_svg-icon circle {
+  stroke: black;
+  stroke-width: 1;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  font-size: 14px;
+  margin: 20px;
+}
+
+.psico_card_btn {
+  text-align: center;
+}
+
+.psico_search {
+  background-color: #f1f1f1;
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  border-top: solid gainsboro;
+  border-width: 2px;
+  flex-wrap: wrap;
+  padding: 7px;
+}
+
+.psico_btn {
+  border-radius: 10px;
+  background: #09a787;
+  padding: 8px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  color: whitesmoke;
+  margin-left: 5px;
+  text-align: center;
+}
+
+.psico_unav_btn {
+  border-radius: 10px;
+  background: #acaaab;
+  padding: 8px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  margin-left: 5px;
+  text-align: center;
+}
+
+.psico_logout_btn {
+  border: solid red 2px;
+  border-radius: 10px;
+  color: red;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  position: absolute;
+  right: 0%;
+  top: 18%;
+}
+
+.psico_regis {
+  height: 40%;
+  width: 40%;
+  background: gainsboro;
+  text-align: center;
+  padding: 20px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border: solid #acaaab 2px;
+  border-radius: 10px;
+}
+
+input {
+  font-size: 12px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 8px;
+  background-color: whitesmoke;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  border-radius: 10px;
+  border: #2b282a solid 1px;
+}
+
+.psico_cita_search_bar {
+  display: grid;
+  justify-content: center;
+  margin-right: 5px;
+}
+
+#psico_h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  color: white;
+  padding: 20px;
+  background-color: #09a787;
+  border-radius: 10px;
+}
+
+h2 {
+  text-align: center;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.psico_btn_login {
+  display: block;
+  margin: auto;
+  color: whitesmoke;
+  cursor: pointer;
+  background: #2b282a;
+  border: transparent;
+  border-radius: 7px;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.psico_btn_srch {
+  display: block;
+  margin: auto;
+  color: whitesmoke;
+  cursor: pointer;
+  background: #2b282a;
+  border: transparent;
+  border-radius: 7px;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: medium;
+  margin-right: 275px;
+}
+
+.psico_svg-logout {
+  width: 2em;
+  height: 2em;
+  float: right;
+  margin-left: 990px;
+}
+
+.psico_svg-logout path,
+.psico_svg-logout polygon,
+.psico_svg-logout rect {
+  fill: black;
+}
+
+.psico_svg-logout circle {
+  stroke: black;
+  stroke-width: 1;
+}
+
+.psico_table-alumnos {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+.psico_table-border {
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+th {
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.psico_pendiente {
+  background-color: yellow;
+  padding: 2px 2px;
+  color: #fff;
+}
+
+.psico_cancelado {
+  background-color: red;
+  padding: 2px 2px;
+  color: #fff;
+}
+
+.psico_aprobado {
+  background-color: green;
+  padding: 2px 2px;
+  color: #fff;
+}
+
+#psico_appointment {
+  background-color: #1ab192;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+}
+
+#psico_mySelect {
+  color: #333;
+  background-color: #f8f9fa;
+  border-color: #ced4da;
+}
+
 .ti_bg {
   width: auto;
   margin: 2rem auto;

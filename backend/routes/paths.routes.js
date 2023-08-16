@@ -168,6 +168,42 @@ router.get("/pagina-error", authenticateToken, (req, res) => {
     res.render("error", locals)
 })
 
+router.get("/cita-psicologia", authenticateToken, async (req, res) => {
+
+    try {
+        if (req.user.username) {
+
+            const student = await Student.findOne({ username: req.user.username });
+            if (student) {
+
+                
+                res.render("citas", {
+                    heading: "Datos personales alumnos",
+                    apellidoPaterno: student.apellidoPaterno,
+                    apellidoMaterno: student.apellidoMaterno,
+                    nombre: student.nombre,
+                    matricula: student.matricula,
+                    email: student.aspectosPersonales.email,
+                    carrera: student.aspectosPersonales.carrera,
+                    area: student.aspectosPersonales.area,
+                    grado: student.aspectosPersonales.grado,
+                    grupo: student.aspectosPersonales.grupo,
+                    telefono: student.aspectosPersonales.telefono,
+                    username: student.username
+                });
+            } else {
+                console.log("Usuario no encontrado en la base de datos.");
+                res.status(404).send("Usuario no encontrado");
+            }
+        } else {
+            console.log("NO usuario ")
+            
+        }
+    } catch (err) {
+        console.error("Error al buscar al usuario:", err);
+        res.status(500).send("Error en el servidor");
+    }
+});
 
 // Ruta para servir la página de aspectos personales
 router.get("/personales", authenticateToken, async (req, res) => {
@@ -322,6 +358,42 @@ router.get("/salud", authenticateToken, async (req, res) => {
     } catch (err) {
         console.error("Error al buscar al usuario:", err);
         res.status(500).send("Error en el servidor");
+    }
+});
+
+router.post("/guardarCita", authenticateToken, async (req, res) => {
+    // Verificar si el usuario ha iniciado sesión
+    console.log(req.body);
+    if (req.user.username) {
+        // Obtener el nombre de usuario del formulario de inicio de sesión
+        const username = req.user.username;
+
+        // Buscar al usuario por el nombre de usuario
+        try {
+            const student = await Student.findOne({ username });
+            if (student) {
+                // Crear el objeto "aspectosPersonales" solo si los datos son enviados
+                student.citaAlumno.sexo = req.body.sexo;
+                student.citaAlumno.email = req.body.email;
+                student.citaAlumno.carrera = req.body.carrera;
+                student.citaAlumno.area = req.body.area;
+                student.citaAlumno.grupo = req.body.grupo;
+                student.citaAlumno.grado = req.body.grado;
+                student.citaAlumno.telefono = req.body.telefono;
+                await student.save();
+
+                console.log("Datos guardados exitosamente en la base de datos.");
+                res.redirect("/citas");
+            } else {
+                console.log("Usuario no encontrado en la base de datos.");
+                res.status(404).send("Usuario no encontrado");
+            }
+        } catch (error) {
+            console.error("Error al guardar los datos:", error);
+            res.redirect("/citas");
+        }
+    } else {
+        res.redirect("/"); // Redirigir al inicio de sesión si el usuario no ha iniciado sesión
     }
 });
 
@@ -492,6 +564,7 @@ router.post("/guardarSalud", authenticateToken, async (req, res) => {
         res.redirect("/"); // Redirigir al inicio de sesión si el usuario no ha iniciado sesión
     }
 });
+
 
 
 module.exports = router;

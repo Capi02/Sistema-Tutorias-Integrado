@@ -1,0 +1,246 @@
+extends ../layout/adminLayout
+
+block Content
+    section.container
+        br
+        br
+        #psico_h1 Calendario de Citas
+        br
+        br
+        #calendar
+        #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+            .modal-dialog(role='document')
+                .modal-content
+                    .modal-header
+                        h5.modal-title#myModalLabel Agendar Cita
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                            span(aria-hidden='true') &times;
+                    .modal-body
+                      .entrevista_inicial_form_container
+                        form.student_info_form(action='/guardarCita' method='post')
+                          .entrevista_inicial_inputs_field
+                            label(for='apellidoPaterno') Apellido paterno
+                              span.required_inputs * 
+                            input.entrevista_inicial_inputs(type='text' name='apellidoPaterno' placeholder='Apellido Paterno' required='' value=apellidoPaterno)
+                          .entrevista_inicial_inputs_field
+                            label(for='apellidoMaterno') Apellido materno
+                              span.required_inputs * 
+                            input.entrevista_inicial_inputs(type='text' name='apellidoMaterno' placeholder='Apellido Materno' required='' value=apellidoMaterno)
+                          .entrevista_inicial_inputs_field
+                            label(for='nombre') Nombre
+                              span.required_inputs * 
+                            input.entrevista_inicial_inputs(type='text' name='nombre' placeholder='Nombre' required='' value=nombre)
+                          .entrevista_inicial_inputs_field
+                            label(for='email') Correo institucional
+                              span.required_inputs *
+                            input.entrevista_inicial_inputs(type='email' name='email' placeholder='Correo institucional' required='' value=email)
+                          .entrevista_inicial_inputs_field
+                            label(for='matricula') Matrícula
+                              span.required_inputs *
+                            input.entrevista_inicial_inputs(type='text' name='matricula' placeholder='Matricula' required='' value=matricula)
+                          .entrevista_inicial_inputs_field
+                            label(for='carrera') Carrera
+                              span.required_inputs *
+                            select#input6.entrevista_inicial_inputs(type='text' name='carrera' placeholder='Correo institucional' required='')
+                              option(value='' selected) Elija su carrera
+                              option(value='Mecatrónica' selected=carrera === 'Mecatrónica') Mecatrónica
+                              option(value='Procesos y Operaciones Industriales' selected=carrera === 'Procesos y Operaciones Industriales') Procesos y Operaciones Industriales
+                              option(value='Energías Renovables' selected=carrera === 'Energías Renovables') Energías Renovables
+                              option(value='Mantenimiento Industrial' selected=carrera === 'Mantenimiento Industrial') Mantenimiento Industrial
+                              option(value='Administracion' selected=carrera === 'Administracion') Administracion
+                              option(value='Tecnologías de la Información' selected=carrera === 'Tecnologías de la Información') Tecnologías de la Información
+                          .entrevista_inicial_inputs_field
+                            label(for='area') Área
+                              span.required_inputs *
+                            select#input7.entrevista_inicial_inputs(type='text' name='area' placeholder='Área' required='')
+                              option(value='' selected) Elija su área
+                              option(value='TSU EN MECATRÓNICA, ÁREA SISTEMAS DE MANUFACTURA FLEXIBLE' selected=area === 'TSU EN MECATRÓNICA, ÁREA SISTEMAS DE MANUFACTURA FLEXIBLE') TSU EN MECATRÓNICA, ÁREA SISTEMAS DE MANUFACTURA FLEXIBLE
+                              option(value='TSU EN MECATRÓNICA, ÁREA AUTOMATIZACIÓN' selected=area === 'TSU EN MECATRÓNICA, ÁREA AUTOMATIZACIÓN') TSU EN MECATRÓNICA, ÁREA AUTOMATIZACIÓN
+                              option(value='TSU EN MECATRÓNICA, ÁREA INSTALACIONES ELÉCTRICAS EFICIENTES' selected=area === 'TSU EN MECATRÓNICA, ÁREA INSTALACIONES ELÉCTRICAS EFICIENTES') TSU EN MECATRÓNICA, ÁREA INSTALACIONES ELÉCTRICAS EFICIENTES
+                              option(value='ING. EN MECATRÓNICA' selected=area === 'ING. EN MECATRÓNICA') ING. EN MECATRÓNICA
+                              option(value='TSU EN PROCESOS INDUSTRIALES, ÁREA MANUFACTURA' selected=area === 'TSU EN PROCESOS INDUSTRIALES, ÁREA MANUFACTURA') TSU EN PROCESOS INDUSTRIALES, ÁREA MANUFACTURA
+                              option(value='TSU EN PROCESOS INDUSTRIALES, ÁREA PLÁSTICOS' selected=area === 'TSU EN PROCESOS INDUSTRIALES, ÁREA PLÁSTICOS') TSU EN PROCESOS INDUSTRIALES, ÁREA PLÁSTICOS
+                              option(value='ING. EN PROCESOS Y OPERACIONES INDUSTRIALES' selected=area === 'ING. EN PROCESOS Y OPERACIONES INDUSTRIALES') ING. EN PROCESOS Y OPERACIONES INDUSTRIALES
+                              option(value='TSU EN ENERGÍAS RENOVABLES, ÁREA CALIDAD Y AHORRO DE ENERGÍA' selected=area === 'TSU EN ENERGÍAS RENOVABLES, ÁREA CALIDAD Y AHORRO DE ENERGÍA') TSU EN ENERGÍAS RENOVABLES, ÁREA CALIDAD Y AHORRO DE ENERGÍA
+                              option(value='ING. EN ENERGÍAS RENOVABLES' selected=area === 'ING. EN ENERGÍAS RENOVABLES') ING. EN ENERGÍAS RENOVABLES
+                              option(value='TSU EN MANTENIMIENTO, ÁREA INDUSTRIAL' selected=area === 'TSU EN MANTENIMIENTO, ÁREA INDUSTRIAL') TSU EN MANTENIMIENTO, ÁREA INDUSTRIAL
+                              option(value='TSU EN MANTENIMIENTO, ÁREA MAQUINARIA PESADA' selected=area === 'TSU EN MANTENIMIENTO, ÁREA MAQUINARIA PESADA') TSU EN MANTENIMIENTO, ÁREA MAQUINARIA PESADA
+                              option(value='TSU EN MANTENIMIENTO, ÁREA REFRIGERACIÓN' selected=area === 'TSU EN MANTENIMIENTO, ÁREA REFRIGERACIÓN') TSU EN MANTENIMIENTO, ÁREA REFRIGERACIÓN
+                              option(value='TSU EN MANTENIMIENTO, ÁREA PETRÓLEO' selected=area === 'TSU EN MANTENIMIENTO, ÁREA PETRÓLEO') TSU EN MANTENIMIENTO, ÁREA PETRÓLEO
+                              option(value='ING. EN MANTENIMIENTO INDUSTRIAL' selected=area === 'ING. EN MANTENIMIENTO INDUSTRIAL') ING. EN MANTENIMIENTO INDUSTRIAL
+                              option(value='TSU EN ADMINISTRACIÓN, ÁREA FORMULACIÓN Y EVALUACIÓN DE PROYECTOS' selected=area === 'TSU EN ADMINISTRACIÓN, ÁREA FORMULACIÓN Y EVALUACIÓN DE PROYECTOS') TSU EN ADMINISTRACIÓN, ÁREA FORMULACIÓN Y EVALUACIÓN DE PROYECTOS
+                              option(value='TSU EN ADMINISTRACIÓN, ÁREA CAPITAL HUMANO' selected=area === 'TSU EN ADMINISTRACIÓN, ÁREA CAPITAL HUMANO') TSU EN ADMINISTRACIÓN, ÁREA CAPITAL HUMANO
+                              option(value='LIC. EN GESTIÓN DE NEGOCIOS Y PROYECTOS' selected=area === 'LIC. EN GESTIÓN DE NEGOCIOS Y PROYECTOS') LIC. EN GESTIÓN DE NEGOCIOS Y PROYECTOS
+                              option(value='LIC. EN GESTIÓN DE CAPITAL HUMANO' selected=area === 'LIC. EN GESTIÓN DE CAPITAL HUMANO') LIC. EN GESTIÓN DE CAPITAL HUMANO
+                              option(value='TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES' selected=area === 'TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES') TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES
+                              option(value='TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA DESARROLLO DE SOFTWARE MULTIPLATAFORMA' selected=area === 'TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA DESARROLLO DE SOFTWARE MULTIPLATAFORMA') TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA DESARROLLO DE SOFTWARE MULTIPLATAFORMA
+                              option(value='ING. EN DESARROLLO Y GESTIÓN DE SOFTWARE' selected=area === 'ING. EN DESARROLLO Y GESTIÓN DE SOFTWARE') ING. EN DESARROLLO Y GESTIÓN DE SOFTWARE
+                              option(value='ING. EN ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES' selected=area === 'ING. EN ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES') ING. EN ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES
+                          .entrevista_inicial_inputs_field
+                            label(for='grado') Grado
+                              span.required_inputs *
+                            select.entrevista_inicial_inputs(type='text' name='grado' placeholder='Grado' required='' value=grado)
+                              option(value='') Elija su grado 
+                              option(value='0' selected=grado === '0') 0
+                              option(value='1' selected=grado === '1') 1
+                              option(value='2' selected=grado === '2') 2
+                              option(value='3' selected=grado === '3') 3
+                              option(value='4' selected=grado === '4') 4
+                              option(value='5' selected=grado === '5') 5
+                              option(value='6' selected=grado === '6') 6
+                              option(value='7' selected=grado === '7') 7
+                              option(value='8' selected=grado === '8') 8
+                              option(value='9' selected=grado === '9') 9
+                              option(value='10' selected=grado === '10') 10
+                              option(value='11' selected=grado === '11') 11
+                          .entrevista_inicial_inputs_field
+                            label(for='grupo') Grupo:
+                              span.required_inputs *
+                            select.entrevista_inicial_inputs(type='text' name='grupo' placeholder='Grupo' required='' value=grupo)
+                              option(value='') Elija su grupo 
+                              option(value='A' selected=grupo === 'A') A
+                              option(value='B' selected=grupo === 'B') B
+                              option(value='C' selected=grupo === 'C') C
+                              option(value='D' selected=grupo === 'D') D
+                              option(value='E' selected=grupo === 'E') E
+                              option(value='F' selected=grupo === 'F') F
+                              option(value='G' selected=grupo === 'G') G
+                              option(value='H' selected=grupo === 'H') H
+                              option(value='I' selected=grupo === 'I') I
+                              option(value='J' selected=grupo === 'J') J
+                              option(value='K' selected=grupo === 'K') K
+                              option(value='L' selected=grupo === 'L') L
+                              option(value='M' selected=grupo === 'M') M
+                          .entrevista_inicial_inputs_field
+                            label(for='telefono') Teléfono
+                              span.required_inputs *
+                            input.entrevista_inicial_inputs(type='tel' pattern='[0-9]*' name='telefono' placeholder='Ej. 8991234567' minlength='10' maxlength='10' required='' value=telefono)
+                          .entrevista_inicial_inputs_field
+                            label(for='sexo') Sexo
+                              span.required_inputs *
+                            select.entrevista_inicial_inputs(type='text' name='sexo' placeholder='' required='' value=sexo)
+                              option(value='') Elija una opción
+                              option(value='Masculino' selected=sexo === 'Masculino') Masculino
+                              option(value='Femenino' selected=sexo === 'Femenino') Femenino
+                          .entrevista_inicial_inputs_field
+                              label(for='horaInicio') Hora de Inicio
+                              input.entrevista_inicial_inputs_field(type='time' name='horaInicio' placeholder='Hora de Inicio' required='' data-parsley-type='datetime')
+                          .entrevista_inicial_inputs_field
+                              label(for='horaFin') Hora de Fin
+                              input.entrevista_inicial_inputs_field(type='time' name='horaFin' placeholder='Hora de Fin' required='' data-parsley-type='datetime')
+                          .entrevista_inicial_inputs_field
+                              label(for='estadoCita') Estado de Cita
+                              br
+                              select.entrevista_inicial_inputs_field(aria-label='Default select example')
+                                  option(value='' disabled='' selected='') Sin asignar
+                          .entrevista_inicial_inputs_field
+                              label(for='fechaElaboracionCita') Fecha de Elaboracion de Cita
+                              input.entrevista_inicial_inputs_field(type='date' name='fechaElaboracionCita' placeholder='Fecha de elaboración' required='' data-parsley-type='date' )
+                          .entrevista_inicial_inputs_field
+                              label(for='psicologo') Psicólogo a cargo
+                              br
+                              select.entrevista_inicial_inputs_field(aria-label='Default select example')
+                                  option(value='' disabled='' selected='') Psicólogo a cargo
+                    .modal-footer
+                        button.btn.psico_btn(type='submit') Agendar
+                        button.btn.btn-secondary(type='button', data-dismiss='modal') Cerrar
+
+    script(src='https://code.jquery.com/jquery-3.6.0.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js')
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js')
+
+    script.
+      $(document).ready(function() {
+        $('#calendar').fullCalendar({
+          header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+          },
+          buttonText: {
+            today: 'Hoy',
+            month: 'Mes',
+            week: 'Semana',
+            day: 'Día'
+          },
+          selectable: true,
+          select: function(start, end) {
+            var today = moment().startOf('day');
+            var minTime = moment().startOf('day').add(8, 'hours');
+            var maxTime = moment().startOf('day').add(20, 'hours');
+            if (start.isBefore(today)) {
+              alert('No puedes seleccionar una fecha anterior al día actual.');
+              $('#calendar').fullCalendar('unselect');
+            } else {
+              $('#myModal').modal('show');
+            }
+          },
+          monthNames: [
+            'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+            'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+          ]
+        });
+
+        function updateAreaOptions(areaValue) {
+          const carrera = $('#input6').val();
+          const areas = {
+            'Mecatrónica': [
+              'TSU EN MECATRÓNICA, ÁREA SISTEMAS DE MANUFACTURA FLEXIBLE',
+              'TSU EN MECATRÓNICA, ÁREA AUTOMATIZACIÓN',
+              'TSU EN MECATRÓNICA, ÁREA INSTALACIONES ELÉCTRICAS EFICIENTES',
+              'ING. EN MECATRÓNICA'
+            ],
+            'Procesos y Operaciones Industriales': [
+              'TSU EN PROCESOS INDUSTRIALES, ÁREA MANUFACTURA',
+              'TSU EN PROCESOS INDUSTRIALES, ÁREA PLÁSTICOS',
+              'ING. EN PROCESOS Y OPERACIONES INDUSTRIALES'
+            ],
+            'Energías Renovables': [
+              'TSU EN ENERGÍAS RENOVABLES, ÁREA CALIDAD Y AHORRO DE ENERGÍA',
+              'ING. EN ENERGÍAS RENOVABLES'
+            ],
+            'Mantenimiento Industrial': [
+              'TSU EN MANTENIMIENTO, ÁREA INDUSTRIAL',
+              'TSU EN MANTENIMIENTO, ÁREA MAQUINARIA PESADA',
+              'TSU EN MANTENIMIENTO, ÁREA REFRIGERACIÓN',
+              'TSU EN MANTENIMIENTO, ÁREA PETRÓLEO',
+              'ING. EN MANTENIMIENTO INDUSTRIAL'
+            ],
+            'Administracion': [
+              'TSU EN ADMINISTRACIÓN, ÁREA FORMULACIÓN Y EVALUACIÓN DE PROYECTOS',
+              'TSU EN ADMINISTRACIÓN, ÁREA CAPITAL HUMANO',
+              'LIC. EN GESTIÓN DE NEGOCIOS Y PROYECTOS',
+              'LIC. EN GESTIÓN DE CAPITAL HUMANO'
+            ],
+            'Tecnologías de la Información': [
+              'TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES',
+              'TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA DESARROLLO DE SOFTWARE MULTIPLATAFORMA',
+              'ING. EN DESARROLLO Y GESTIÓN DE SOFTWARE',
+              'ING. EN ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES'
+            ]
+          };
+
+          const areaSelect = $('#input7');
+          areaSelect.empty();
+
+          areas[carrera].forEach((area) => {
+            const isSelected = area === areaValue;
+            areaSelect.append($('<option>', { value: area, text: area, selected: isSelected }));
+          });
+        }
+
+        $('#input6').on('change', function () {
+          const currentAreaValue = $('#input7').val();
+          updateAreaOptions(currentAreaValue);
+        });
+
+        const currentAreaValue = $('#input7').val();
+        updateAreaOptions(currentAreaValue);
+      });
