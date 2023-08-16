@@ -909,13 +909,17 @@ header {
   gap: 1rem;
 }
 
-#students_table_wrapper, #teachers_table_wrapper, #psychologist_table_wrapper {
+#students_table, #teachers_table, #psychologist_table, #groups_table {
+  width: 100% !important;
+}
+
+#students_table_wrapper, #teachers_table_wrapper, #psychologist_table_wrapper, #groups_table_wrapper {
   font-size: 1.4rem;
 }
-#students_table_wrapper .dataTables_length, #students_table_wrapper .dataTables_filter, #teachers_table_wrapper .dataTables_length, #teachers_table_wrapper .dataTables_filter, #psychologist_table_wrapper .dataTables_length, #psychologist_table_wrapper .dataTables_filter {
+#students_table_wrapper .dataTables_length, #students_table_wrapper .dataTables_filter, #teachers_table_wrapper .dataTables_length, #teachers_table_wrapper .dataTables_filter, #psychologist_table_wrapper .dataTables_length, #psychologist_table_wrapper .dataTables_filter, #groups_table_wrapper .dataTables_length, #groups_table_wrapper .dataTables_filter {
   margin-bottom: 1.5rem;
 }
-#students_table_wrapper .dataTables_length .label, #students_table_wrapper .dataTables_filter .label, #teachers_table_wrapper .dataTables_length .label, #teachers_table_wrapper .dataTables_filter .label, #psychologist_table_wrapper .dataTables_length .label, #psychologist_table_wrapper .dataTables_filter .label {
+#students_table_wrapper .dataTables_length .label, #students_table_wrapper .dataTables_filter .label, #teachers_table_wrapper .dataTables_length .label, #teachers_table_wrapper .dataTables_filter .label, #psychologist_table_wrapper .dataTables_length .label, #psychologist_table_wrapper .dataTables_filter .label, #groups_table_wrapper .dataTables_length .label, #groups_table_wrapper .dataTables_filter .label {
   color: black;
   font-size: 1.4rem;
   display: block;
@@ -1316,7 +1320,7 @@ header {
 }
 
 .content .content_container {
-  padding: 3.5rem;
+  padding: 3rem;
 }
 @media (min-width: 1400px) {
   .content .content_container {
@@ -1465,15 +1469,6 @@ header {
   font-size: 2.5rem;
   text-align: start;
   margin-bottom: 2rem;
-}
-
-.groups_table_container {
-  width: 45rem;
-}
-.groups_table_container #groups_table {
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-  width: 45rem;
 }
 
 .create_group_field {
