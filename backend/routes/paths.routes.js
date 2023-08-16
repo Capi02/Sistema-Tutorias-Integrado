@@ -144,18 +144,6 @@ router.get("/cita-psicologia", authenticateToken, ( req, res) => {
     res.render("citas", locals)
 })
 
-router.get("/alumnos-citados", authenticateToken, ( req, res) => {
-    const {username, role} = req.user;
-
-    const locals = {
-        title: "Alumnos citados",
-        username, 
-        role,
-    }
-
-    res.render("alumnos-citados", locals)
-})
-
 router.get("/actualizar-password", authenticateToken, (req, res) => {
     const { username, role } = req.user;
 
@@ -180,6 +168,41 @@ router.get("/pagina-error", authenticateToken, (req, res) => {
     res.render("error", locals)
 })
 
+router.get("/citas", authenticateToken, async (req, res) => {
+
+    try {
+        if (req.user.username) {
+
+            const student = await Student.findOne({ username: req.user.username });
+            if (student) {
+
+                res.render("citas", {
+                    heading: "Datos personales alumnos",
+                    apellidoPaterno: student.apellidoPaterno,
+                    apellidoMaterno: student.apellidoMaterno,
+                    nombre: student.nombre,
+                    matricula: student.matricula,
+                    email: student.aspectosPersonales.email,
+                    carrera: student.aspectosPersonales.carrera,
+                    area: student.aspectosPersonales.area,
+                    grado: student.aspectosPersonales.grado,
+                    grupo: student.aspectosPersonales.grupo,
+                    telefono: student.aspectosPersonales.telefono,
+                    username: student.username
+                });
+            } else {
+                console.log("Usuario no encontrado en la base de datos.");
+                res.status(404).send("Usuario no encontrado");
+            }
+        } else {
+            console.log("NO usuario ")
+            
+        }
+    } catch (err) {
+        console.error("Error al buscar al usuario:", err);
+        res.status(500).send("Error en el servidor");
+    }
+});
 
 // Ruta para servir la página de aspectos personales
 router.get("/personales", authenticateToken, async (req, res) => {

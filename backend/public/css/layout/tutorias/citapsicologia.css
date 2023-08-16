@@ -72,6 +72,17 @@ li {
   text-align: center;
 }
 
+.psico_unav_btn {
+  border-radius: 10px;
+  background: #acaaab;
+  padding: 8px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  margin-left: 5px;
+  text-align: center;
+}
+
 .psico_logout_btn {
   border: solid red 2px;
   border-radius: 10px;
@@ -115,10 +126,14 @@ input {
   margin-right: 5px;
 }
 
-h1 {
+#psico_h1 {
   text-align: center;
-  margin: auto;
-  width: auto;
+  font-weight: bold;
+  font-size: 30px;
+  color: white;
+  padding: 20px;
+  background-color: #09a787;
+  border-radius: 10px;
 }
 
 h2 {
@@ -215,4 +230,10 @@ th {
   padding: 20px;
   margin: 20px;
   border-radius: 5px;
+}
+
+#psico_mySelect {
+  color: #333;
+  background-color: #f8f9fa;
+  border-color: #ced4da;
 }

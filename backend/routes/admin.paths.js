@@ -83,5 +83,16 @@ router.get("/pat", authenticateToken, authenticateRole("admin"), (req, res) => {
     res.render("admin/pat", locals)
 })
 
+router.get("/citas-admin", authenticateToken, ( req, res) => {
+    const {username, role} = req.user;
+
+    const locals = {
+        title: "Admin Citas",
+        username, 
+        role,
+    }
+
+    res.render("admin/citas-admin", locals)
+})
 
 module.exports = router;
