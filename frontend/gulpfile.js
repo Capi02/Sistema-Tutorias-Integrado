@@ -45,6 +45,12 @@ function webpVersion(done) {
     done()
 }
 
+function jsFolder(done){
+    src("src/js/**/*.js")
+        .pipe(dest("../backend/public/js"))
+    done()
+}
+
 function avifVersion(done) {
 
     const options = {
@@ -64,6 +70,7 @@ function dev(done) {
 }
 
 exports.imagenes = imagenes;
+exports.jsFolder = jsFolder;
 exports.css = css;
 exports.webpVersion = webpVersion;
 exports.avifVersion = avifVersion;

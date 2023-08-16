@@ -25,8 +25,12 @@
       }
     }
   }
+
+  #students_table, #teachers_table,#psychologist_table, #groups_table{
+    width: 100% !important;
+  }
   
-  #students_table_wrapper, #teachers_table_wrapper, #psychologist_table_wrapper {
+  #students_table_wrapper, #teachers_table_wrapper, #psychologist_table_wrapper, #groups_table_wrapper {
     font-size: 1.4rem;
   
     .dataTables_length, .dataTables_filter {

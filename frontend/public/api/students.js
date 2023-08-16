@@ -18,7 +18,6 @@ async function getStudents() {
 }
 
 function studentsTable(students) {
-    console.log(students)
     let table = new DataTable("#students_table", {
         responsive: true,
         data: students,
