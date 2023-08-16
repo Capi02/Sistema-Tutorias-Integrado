@@ -2,45 +2,79 @@
 @use "../../base/mixins" as m;
 
 .table {
-    font-size: 1.3rem;
-    box-shadow: 1px 2px 26px rgba(0, 0, 0, 0.2);
-  
-    th {
-      background-color: v.$uttn_green;
-      color: v.$white;
-    }
-  
-    th,
-    td {
-      padding: 1rem;
-    }
-  
-    td {
-      border: 1px solid #ccc;
-      color: v.$black;
+  font-size: 1.3rem;
+  box-shadow: 1px 2px 26px rgba(0, 0, 0, 0.2);
 
-      &:last-child{
-        display: flex;
-        gap: 1rem;
-      }
-    }
+  th {
+    background-color: v.$uttn_green;
+    color: v.$white;
   }
 
-  #students_table, #teachers_table,#psychologist_table, #groups_table{
-    width: 100% !important;
+  th,
+  td {
+    padding: 1rem;
   }
-  
-  #students_table_wrapper, #teachers_table_wrapper, #psychologist_table_wrapper, #groups_table_wrapper {
-    font-size: 1.4rem;
-  
-    .dataTables_length, .dataTables_filter {
-      margin-bottom: 1.5rem;
-      .label {
-        color: black;
-        font-size: 1.4rem;
-        display: block;
-        padding-bottom: 4px;
-      }
+
+  td {
+    border: 1px solid #ccc;
+    color: v.$black;
+
+    &:last-child {
+      display: flex;
+      gap: 1rem;
     }
   }
-  
+}
+
+#students_table,
+#teachers_table,
+#psychologist_table,
+#groups_table {
+  width: 100% !important;
+}
+
+#students_table_wrapper,
+#teachers_table_wrapper,
+#psychologist_table_wrapper,
+#groups_table_wrapper {
+  font-size: 1.4rem;
+
+  .dataTables_length,
+  .dataTables_filter {
+    margin-bottom: 1.5rem;
+    .label {
+      color: black;
+      font-size: 1.4rem;
+      display: block;
+      padding-bottom: 4px;
+    }
+  }
+}
+
+.students_group_table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 4rem;
+}
+
+.students_group_table td,
+.students_group_table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.students_group_table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.students_group_table tr:hover {
+  background-color: #ddd;
+}
+
+.students_group_table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04aa6d;
+  color: white;
+}

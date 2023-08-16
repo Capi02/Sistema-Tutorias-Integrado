@@ -888,6 +888,12 @@ header {
   cursor: pointer;
 }
 
+.close_button_container {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
 .table {
   font-size: 1.3rem;
   box-shadow: 1px 2px 26px rgba(0, 0, 0, 0.2);
@@ -909,21 +915,69 @@ header {
   gap: 1rem;
 }
 
-#students_table, #teachers_table, #psychologist_table, #groups_table {
+#students_table,
+#teachers_table,
+#psychologist_table,
+#groups_table {
   width: 100% !important;
 }
 
-#students_table_wrapper, #teachers_table_wrapper, #psychologist_table_wrapper, #groups_table_wrapper {
+#students_table_wrapper,
+#teachers_table_wrapper,
+#psychologist_table_wrapper,
+#groups_table_wrapper {
   font-size: 1.4rem;
 }
-#students_table_wrapper .dataTables_length, #students_table_wrapper .dataTables_filter, #teachers_table_wrapper .dataTables_length, #teachers_table_wrapper .dataTables_filter, #psychologist_table_wrapper .dataTables_length, #psychologist_table_wrapper .dataTables_filter, #groups_table_wrapper .dataTables_length, #groups_table_wrapper .dataTables_filter {
+#students_table_wrapper .dataTables_length,
+#students_table_wrapper .dataTables_filter,
+#teachers_table_wrapper .dataTables_length,
+#teachers_table_wrapper .dataTables_filter,
+#psychologist_table_wrapper .dataTables_length,
+#psychologist_table_wrapper .dataTables_filter,
+#groups_table_wrapper .dataTables_length,
+#groups_table_wrapper .dataTables_filter {
   margin-bottom: 1.5rem;
 }
-#students_table_wrapper .dataTables_length .label, #students_table_wrapper .dataTables_filter .label, #teachers_table_wrapper .dataTables_length .label, #teachers_table_wrapper .dataTables_filter .label, #psychologist_table_wrapper .dataTables_length .label, #psychologist_table_wrapper .dataTables_filter .label, #groups_table_wrapper .dataTables_length .label, #groups_table_wrapper .dataTables_filter .label {
+#students_table_wrapper .dataTables_length .label,
+#students_table_wrapper .dataTables_filter .label,
+#teachers_table_wrapper .dataTables_length .label,
+#teachers_table_wrapper .dataTables_filter .label,
+#psychologist_table_wrapper .dataTables_length .label,
+#psychologist_table_wrapper .dataTables_filter .label,
+#groups_table_wrapper .dataTables_length .label,
+#groups_table_wrapper .dataTables_filter .label {
   color: black;
   font-size: 1.4rem;
   display: block;
   padding-bottom: 4px;
+}
+
+.students_group_table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 4rem;
+}
+
+.students_group_table td,
+.students_group_table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.students_group_table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.students_group_table tr:hover {
+  background-color: #ddd;
+}
+
+.students_group_table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04aa6d;
+  color: white;
 }
 
 .tab {
@@ -1355,7 +1409,6 @@ header {
 }
 
 .add_user_label {
-  display: inline-block;
   color: #000;
   text-transform: uppercase;
   font-size: 1.3rem;
@@ -1363,7 +1416,8 @@ header {
 }
 
 .add_user_input {
-  width: 100%;
+  width: 30rem;
+  display: block;
   height: 3.6rem;
   border: none;
   border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);
@@ -1447,7 +1501,9 @@ header {
   gap: 1.5rem;
 }
 .edit_field label {
+  display: flex;
   font-weight: 700;
+  align-items: center;
 }
 .edit_field .edit_input {
   border: 1.5px solid black;
@@ -1482,4 +1538,17 @@ header {
   display: flex;
   justify-content: end;
   align-items: center;
+}
+
+.show_students_container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  font-size: 1.6rem;
+  width: 60%;
 }

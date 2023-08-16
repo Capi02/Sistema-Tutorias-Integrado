@@ -1,21 +1,22 @@
 const Group = require("../models/Group.model");
+const Student = require("../models/Student.model");
 
 const createGroup = async (req, res) => {
-    const { groupName} = req.body;
-    
+    const { groupName } = req.body;
+
     try {
-        if(groupName === ""){
-            res.status(400).json({message: "El nombre del grupo se encuentra vacio"});
+        if (groupName === "") {
+            res.status(400).json({ message: "El nombre del grupo se encuentra vacio" });
         }
-        else if( groupName.length > 2){
-            res.status(400).json({error: "El nombre del grupo no puede contener mas de 2 caracteres"})
+        else if (groupName.length > 2) {
+            res.status(400).json({ error: "El nombre del grupo no puede contener mas de 2 caracteres" })
         }
 
         const newGroup = new Group({
             name: groupName.toUpperCase(),
         })
         await newGroup.save();
-        res.status(201).json({message: "Grupo creado correctamente!"});
+        res.status(201).json({ message: "Grupo creado correctamente!" });
 
     } catch (error) {
         console.log(error)
@@ -32,17 +33,25 @@ const showGroups = async (req, res) => {
 }
 
 const showStudentsByGroup = async (req, res) => {
+
     try {
-        const students = await Student.find({ role: "student" });
+        const { group } = req.params;
+        const grade = group.charAt(0);
+        const groupName = group.charAt(1);
+
+        const students = await Student.find({
+            "aspectosPersonales.grado": grade,
+            "aspectosPersonales.grupo": groupName
+        });
 
         res.status(200).json(students);
-        next();
-
     } catch (error) {
-        console.error("Error obtainning the students: ", error);
-        throw error;
+        console.error(error);
+        res.status(500).json({ error: "Error al obtener los estudiantes" });
     }
-}
+};
+
+
 
 const deleteGroup = async (req, res) => {
 
@@ -64,4 +73,5 @@ module.exports = {
     createGroup,
     showGroups,
     deleteGroup,
+    showStudentsByGroup
 }

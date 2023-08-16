@@ -4,7 +4,7 @@ block Content
       .groups_container 
           .create_group_button_container
             h3.groups_title Crear Grupo
-            form#create_group_form(method="POST" action="") 
+            form#register_group_form(method="POST" action="") 
               .create_group_field 
                   label.add_user_label(for="groupName") Nombre:
                   input.add_user_input#groupName(type="text" name="groupName" placeholder="Ej: 5A" ) 
@@ -20,11 +20,6 @@ block Content
                   th Acciones
               tbody  
     div#overlay
-          div.edit_form_container
-            
-              .edit_buttons_container 
-                button.student_cancel_button(type="button") Cancelar
-                button.save_edit_button(type="button") Guardar Cambios    
-      
-            
-    script(src="/api/groups.js") 
+      div.show_students_container
+  
+    script(src="/api/groups.js" type="module") 
