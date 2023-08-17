@@ -16,25 +16,25 @@ block Content
 
         div#overlay
           div.edit_form_container
-            form(action="" method="PATCH")#edit_form
+            form(action="" method="GET")#edit_form
               .edit_field
                 label(for="edit_matricula") Matricula:
-                input.edit_input#edit_input_matricula(type="text" name="matricula" placeholder="Matricula")
+                input.add_user_input#edit_input_matricula(type="text" name="matricula" placeholder="Matricula")
               .edit_field
                 label(for="edit_matricula") Nombre:
-                input.edit_input#edit_input_nombre(type="text" name="nombre" placeholder="Nombre")
+                input.add_user_input#edit_input_nombre(type="text" name="nombre" placeholder="Nombre")
               .edit_field
                 label(for="edit_apellidoPaterno") Apellido Paterno:
-                input.edit_input#edit_input_apellidoPaterno(type="text" name="apellidoPaterno" placeholder="Apellido Paterno")
+                input.add_user_input#edit_input_apellidoPaterno(type="text" name="apellidoPaterno" placeholder="Apellido Paterno")
               .edit_field
                 label(for="edit_apellidoMaterno") Apellido Materno:
-                input.edit_input#edit_input_apellidoMaterno(type="text" name="apellidoMaterno" placeholder="Apellido Materno")
+                input.add_user_input#edit_input_apellidoMaterno(type="text" name="apellidoMaterno" placeholder="Apellido Materno")
               .edit_field
                 label(for="edit_username") Nombre Usuario:
-                input.edit_input#edit_input_username(type="text" name="username" placeholder="Nombre Usuario")
+                input.add_user_input#edit_input_username(type="text" name="username" placeholder="Nombre Usuario")
               .edit_field
                 label(for="edit_password") Contraseña:
-                input.edit_input#edit_input_password(type="password" name="password" placeholder="Contraseña")
+                input.add_user_input#edit_input_password(type="password" name="password" placeholder="Contraseña")
               .edit_buttons_container 
                 button.student_cancel_button(type="button") Cancelar
                 button.save_edit_button(type="button") Guardar Cambios
