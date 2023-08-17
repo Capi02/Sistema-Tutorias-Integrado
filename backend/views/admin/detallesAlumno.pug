@@ -23,8 +23,9 @@ html(lang="en")
             .tab.mt-4
                 .types_container 
                     button.tablinks.active(onclick="openUserType(event, 'InformacionAlumno')") Información Alumno
-                    button.tablinks(onclick="openUserType(event, 'InformacionAcademica')") Información Academica
+                    button.tablinks(onclick="openUserType(event, 'AspectosAcademicos')") Aspectos Academicos
                     button.tablinks(onclick="openUserType(event, 'AspectosEconomicos')") Aspectos Economicos
+                    button.tablinks(onclick="openUserType(event, 'AspectosPersonales')") Aspectos Personales
                     button.tablinks(onclick="openUserType(event, 'Salud')") Información de Salud
             #InformacionAlumno.tabcontent.active(style = "display:block;")
                 .student_info_section 
@@ -42,7 +43,7 @@ html(lang="en")
                             span.label_info Nombre(s): 
                             | #{student.nombre}
                           
-            #InformacionAcademica.tabcontent
+            #AspectosAcademicos.tabcontent
                 .student_info_section
                     ul
                         li.info_list  
@@ -120,7 +121,51 @@ html(lang="en")
                             | #{student.aspectosEconomicos.profesionpapa} 
                         li.info_list 
                             span.label_info Trabaja: 
-                            | #{student.aspectosEconomicos.trabajas}      
+                            | #{student.aspectosEconomicos.trabajas}
+            #AspectosPersonales.tabcontent 
+                .student_info_section
+                    ul
+                        li.info_list 
+                            span.label_info Carrera:
+                            | #{student.aspectosPersonales.carrera}
+                        li.info_list  
+                            span.label_info Area: 
+                            | #{student.aspectosPersonales.area} 
+                        li.info_list 
+                            span.label_info Correo: 
+                            | #{student.aspectosPersonales.email} 
+                        li.info_list 
+                            span.label_info Fecha de nacimiento: 
+                            | #{student.aspectosPersonales.fechadenacimiento} 
+                        li.info_list 
+                            span.label_info Grado: 
+                            | #{student.aspectosPersonales.grado} 
+                        li.info_list 
+                            span.label_info Grupo: 
+                            | #{student.aspectosPersonales.grupo}
+                        li.info_list 
+                            span.label_info Teléfono: 
+                            | #{student.aspectosPersonales.telefono}
+                        li.info_list 
+                            span.label_info Teléfono emergencia: 
+                            | #{student.aspectosPersonales.telefonoemergencia}
+                        li.info_list  
+                            span.label_info Teléfono emergencia 2: 
+                            | #{student.aspectosPersonales.telefonoemergencia2}
+                        li.info_list 
+                            span.label_info De quien es el télefono: 
+                            | #{student.aspectosPersonales.dequieneseltelefono}
+                        li.info_list 
+                            span.label_info De quien es el télefono 2: 
+                            | #{student.aspectosPersonales.dequieneseltelefono2}
+                        li.info_list 
+                            span.label_info Sexo: 
+                            | #{student.aspectosPersonales.sexo}
+                     
+                        li.info_list 
+                            span.label_info Tipo condicion: 
+                            | #{student.aspectosPersonales.tipocondicion} 
+
             #Salud.tabcontent 
                 .student_info_section
                     ul
