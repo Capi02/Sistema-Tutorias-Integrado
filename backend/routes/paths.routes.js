@@ -4,9 +4,19 @@ const path = require("path");
 const router = Router();
 const Test1 = require("../models/pensamiento.abstracto.model");
 const mongoose = require("mongoose");
+const { MongoClient } = require("mongodb");
+const mongoUrl = "mongodb+srv://bhaviboyy:bhavi1906@tutoriasdb.drum2vh.mongodb.net/";
+const dbName = "tutoriasdb";
+
 const studentSchema = new mongoose.Schema({
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    test: {
+        respuestas:{
+
+        },
+        total: { type: String, default: "" },
+    },
     aspectosPersonales: {
         email: { type: String, default: "" },
         fechadenacimiento: { type: Date, default: "" },
@@ -132,12 +142,12 @@ router.get("/tutorias", authenticateToken, (req, res) => {
     res.render("tutorias", locals);
 })
 
-router.get("/cita-psicologia", authenticateToken, ( req, res) => {
-    const {username, role} = req.user;
+router.get("/cita-psicologia", authenticateToken, (req, res) => {
+    const { username, role } = req.user;
 
     const locals = {
         title: "Cita psicologia",
-        username, 
+        username,
         role,
     }
 
@@ -204,7 +214,7 @@ router.get("/personales", authenticateToken, async (req, res) => {
             }
         } else {
             console.log("NO usuario ")
-            
+
         }
     } catch (err) {
         console.error("Error al buscar al usuario:", err);
@@ -325,7 +335,70 @@ router.get("/salud", authenticateToken, async (req, res) => {
     }
 });
 
-// Ruta para guardar los datos enviados desde el formulario
+
+router.post("/guardar_respuestas", authenticateToken, async (req, res) => {
+    if (req.user.username) {
+        // Obtener el nombre de usuario del formulario de inicio de sesión
+        try {
+            const selectedAnswers = req.body;
+            const test = {}; // Objeto para almacenar las respuestas y el total
+            test.respuestas = {};
+            let totalAnswers = 0; // Variable para almacenar el total de respuestas
+
+            Object.keys(selectedAnswers).forEach(question => {
+                selectedAnswers[question].forEach(answer => {
+                    if (test.respuestas[answer]) {
+                        test.respuestas[answer]++;
+                        totalAnswers++; // Incrementa el total de respuestas
+                    } else {
+                        test.respuestas[answer] = 1;
+                        totalAnswers++; // Incrementa el total de respuestas
+                    }
+                });
+            });
+
+            test.total = totalAnswers; // Agrega el total al objeto test
+
+            const { MongoClient } = require("mongodb");
+
+            const client = new MongoClient(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
+            await client.connect();
+
+            const db = client.db(dbName);
+            const respuestasCollection = db.collection("students"); // Cambio de nombre de la colección
+
+            const docId = new Date().getTime().toString();
+
+            // Obtén el nombre de usuario del token
+            const username = req.user.username;
+
+            // Busca al estudiante por el nombre de usuario
+            const student = await Student.findOne({ username });
+
+            if (student) {
+                // Agrega el objeto "test" al estudiante
+                student.test = test;
+
+                // Guarda el estudiante actualizado en la base de datos
+                await student.save();
+
+                console.log("Respuestas guardadas y vinculadas correctamente");
+                res.status(200).send("Respuestas guardadas y vinculadas correctamente");
+            } else {
+                console.log("Usuario no encontrado en la base de datos.");
+                res.status(404).send("Usuario no encontrado");
+            }
+
+            client.close();
+        } catch (error) {
+            console.error("Error:", error);
+            res.status(500).send("Error al guardar respuestas");
+        }
+    } else {
+        res.redirect("/"); // Redirigir al inicio de sesión si el usuario no ha iniciado sesión
+    }
+});
+
 router.post("/guardarPersonales", authenticateToken, async (req, res) => {
     // Verificar si el usuario ha iniciado sesión
     console.log(req.body);
@@ -367,6 +440,7 @@ router.post("/guardarPersonales", authenticateToken, async (req, res) => {
     }
 });
 
+
 // Ruta para guardar los datos enviados desde el formulario
 router.post("/guardarAcademicos", authenticateToken, async (req, res) => {
     // Verificar si el usuario ha iniciado sesión
@@ -379,7 +453,7 @@ router.post("/guardarAcademicos", authenticateToken, async (req, res) => {
         try {
             const student = await Student.findOne({ username });
             if (student) {
-                
+
                 student.aspectosAcademicos.bachilleratoegresado = req.body.bachilleratoegresado;
                 student.aspectosAcademicos.otrobachillerato = req.body.otrobachillerato;
                 student.aspectosAcademicos.especialidadbachillerato = req.body.especialidadbachillerato;

@@ -8,39 +8,208 @@ block contenido
                 //- button.tablinks(onclick="openUserType(event, 'tamizaje2')") Tamizaje 2 
                 button.tablinks(onclick="openUserType(event, 'formasAprendizaje')") Formas de Aprendizaje
         #pensamientoAbstracto.tabcontent.active(style = "display:block;")
-            .test_content
-                form.test_form(method="POST" action="")
-                    question_container 
-                        each question in paQuestions
-                            h4=question.questionText
-                            each option, index in question.options
-                                .answer_container
-                                    input(type="radio" id=`option${index}` value=option name=question.id)
-                                    label(for=`option_${index}`)=option    
-                            
-                            
-                          
-        #tamizaje.tabcontent
-            h3 Test 2
-        #tamizaje2.tabcontent
-            h3 Test 2
-        #formasAprendizaje.tabcontent
-            h3 Test 3
+            form#miFormulario
+                label
+                    | Est&aacute; ayudando a una persona que desea ir al aeropuerto, al centro de la ciudad o a la estaci&oacute;n del ferrocarril. Ud:
+                .opcion-group
+                    input.opcion(type='checkbox', name='pregunta1[]', value='K')
+                    |  Ir&iacute;a con ella
+                    input.opcion(type='checkbox', name='pregunta1[]', value='A')
+                    |  Le dir&iacute;a c&oacute;mo llegar
+                    input.opcion(type='checkbox', name='pregunta1[]', value='R')
+                    |  Le dar&iacute;a las indicaciones por escrito (sin un mapa).
+                    input.opcion(type='checkbox', name='pregunta1[]', value='V')
+                    |  Le dar&iacute;a un mapa
+                br
+                label
+                    | No est&aacute; seguro si una palabra se escribe como &ldquo;trascendente&rdquo; o &ldquo;tracendente&rdquo;, Ud.:
+                .opcion-group
+                    input.opcion(type='checkbox', name='pregunta2[]', value='V')
+                    |  Ver&iacute;a las palabras en su mente y elegir&iacute;a la que mejor luce. 
+                    input.opcion(type='checkbox', name='pregunta2[]', value='A')
+                    |  Pensar&iacute;a en c&oacute;mo suena cada palabra y elegir&iacute;a una.
+                    input.opcion(type='checkbox', name='pregunta2[]', value='R')
+                    |  Las buscar&iacute;a en un diccionario 
+                    input.opcion(type='checkbox', name='pregunta2[]', value='K')
+                    |  Escribir&iacute;a ambas palabras y elegir&iacute;a una
+                br
+                label
+                    | Est&aacute; planeando unas vacaciones para un grupo de personas y desear&iacute;a la retroalimentaci&oacute;n de ellos sobre el plan. Ud.:
+                .opcion-group
+                    input.opcion(type='checkbox', name='pregunta3[]', value='K')
+                    |  Describir&iacute;a algunos de los atractivos del viaje
+                    input.opcion(type='checkbox', name='pregunta3[]', value='V')
+                    |  Utilizar&iacute;a un mapa o un sitio web para mostrar los lugares
+                    input.opcion(type='checkbox', name='pregunta3[]', value='R')
+                    |  Les dar&iacute;a una copia del itinerario impreso
+                    input.opcion(type='checkbox', name='pregunta3[]', value='A')
+                    |  Les llamar&iacute;a por tel&eacute;fono, les escribir&iacute;a o les enviar&iacute;a un e-mail.
+                br
+                label Va a cocinar alg&uacute;n platillo especial para su familia. Ud.:
+                .opcion-group
+                    input.opcion(type='checkbox', name='pregunta4[]', value='K')
+                    |  Cocinar&iacute;a algo que conoce sin la necesidad de instrucciones
+                    input.opcion(type='checkbox', name='pregunta4[]', value='A')
+                    |  Pedir&iacute;a sugerencias a sus amigos
+                    input.opcion(type='checkbox', name='pregunta4[]', value='V')
+                    |  Hojear&iacute;a un libro de cocina para tomar ideas de las fotograf&iacute;as.
+                    input.opcion(type='checkbox', name='pregunta4[]', value='R')
+                    |  Utilizar&iacute;a un libro de cocina donde sabe que hay una buena receta.
+                label
+                    | Un grupo de turistas desea aprender sobre los parques o las reservas de vida salvaje en su &aacute;rea. Ud.:
+                .opcion-group
+                    input.opcion(type='checkbox', name='pregunta5[]', value='A')
+                    |  Les dar&iacute;a una pl&aacute;tica acerca de parques o reservas de vida salvaje
+                    input.opcion(type='checkbox', name='pregunta5[]', value='V')
+                    |  Es mostrar&iacute;a figuras de Internet, fotograf&iacute;as o libros con im&aacute;genes
+                    input.opcion(type='checkbox', name='pregunta5[]', value='K')
+                    |  Los llevar&iacute;a a un parque o reserva y dar&iacute;a una caminata con ellos
+                    input.opcion(type='checkbox', name='pregunta5[]', value='R')
+                    |  Les dar&iacute;a libros o folletos sobre parques o reservas de vida salvaje.
+                label
+                    | Est&aacute; a punto de comprar una c&aacute;mara digital o un tel&eacute;fono m&oacute;vil. &iquest;Adem&aacute;s del precio, qu&eacute; m&aacute;s influye en su decisi&oacute;n.
+                .opcion-group
+                    input.opcion(type='checkbox', name='pregunta6[]', value='K')
+                    |  Lo utiliza o lo prueba .
+                    input.opcion(type='checkbox', name='pregunta6[]', value='R')
+                    |  La lectura de los detalles acerca de las caracter&iacute;sticas del aparato
+                    input.opcion(type='checkbox', name='pregunta6[]', value='V')
+                    |  El dise&ntilde;o del aparato es moderno y parece bueno
+                    input.opcion(type='checkbox', name='pregunta6[]', value='A')
+                    |  Los comentarios del vendedor acerca de las caracter&iacute;sticas del aparato.
+                label
+                    | Recuerde la vez cuando aprendi&oacute; c&oacute;mo hacer algo nuevo. Evite elegir una destreza f&iacute;sica, como montar bicicleta. &iquest;C&oacute;mo aprendi&oacute; mejor?
+                .opcion-group
+                    input.opcion(type='checkbox', name='pregunta7[]', value='K')
+                    |  Viendo una demostraci&oacute;n
+                    input.opcion(type='checkbox', name='pregunta7[]', value='A')
+                    |  Escuchando la explicaci&oacute;n de alguien y haciendo preguntas.
+                    input.opcion(type='checkbox', name='pregunta7[]', value='V')
+                    |  Siguiendo pistas visuales en diagramas y gr&aacute;ficas  
+                    input.opcion(type='checkbox', name='pregunta7[]', value='R')
+                    |  Siguiendo instrucciones escritas en un manual o libro de texto.
+                label Tiene un problema con su rodilla. Preferir&iacute;a que el doctor
+                .opcion-group
+                    input.opcion(type='checkbox', name='pregunta8[]', value='R')
+                    |  Le diera una direcci&oacute;n web o algo para leer sobre el asunto.
+                    input.opcion(type='checkbox', name='pregunta8[]', value='K')
+                    |  Utilizara el modelo pl&aacute;stico de una rodilla para mostrarle qu&eacute; est&aacute; ma
+                    input.opcion(type='checkbox', name='pregunta8[]', value='A')
+                    |  Le describiera qu&eacute; est&aacute; mal.
+                    input.opcion(type='checkbox', name='pregunta8[]', value='V')
+                    |  Le mostrara con un diagrama qu&eacute; es lo que est&aacute; mal
+                label Desea aprender un nuevo programa, habilidad o juego de computadora. Ud. debe
+                .opcion-group
+                    input.opcion(type='checkbox', name='pregunta9[]', value='R')
+                    |  Leer las instrucciones escritas que vienen con el programa.
+                    input.opcion(type='checkbox', name='pregunta9[]', value='A')
+                    |  Platicar con personas que conocen el programa.
+                    input.opcion(type='checkbox', name='pregunta9[]', value='K')
+                    |  Utilizar los controles o el teclado.
+                    input.opcion(type='checkbox', name='pregunta9[]', value='V')
+                    |  Seguir los diagramas del libro que vienen con el programa
+                label Le gustan los sitios web que tienen:
+                .opcion-group
+                    input.opcion(type='checkbox', name='pregunta10[]', value='K')
+                    |  Cosas que se pueden picar, mover o probar
+                    input.opcion(type='checkbox', name='pregunta10[]', value='V')
+                    |  Un dise&ntilde;o interesante y caracter&iacute;sticas visuales.
+                    input.opcion(type='checkbox', name='pregunta10[]', value='R')
+                    |  Descripciones escritas interesantes, caracter&iacute;sticas y explicaciones
+                    input.opcion(type='checkbox', name='pregunta10[]', value='A')
+                    |  Canales de audio para o&iacute;r m&uacute;sica, programas o entrevistas
+                label
+                    | Adem&aacute;s del precio, &iquest;qu&eacute; influir&iacute;a m&aacute;s en su decisi&oacute;n de comprar un nuevo libro de no ficci&oacute;n?
+                .opcion-group
+                    input.opcion(type='checkbox', name='pregunta11[]', value='V')
+                    |  La apariencia le resulta atractiva
+                    input.opcion(type='checkbox', name='pregunta11[]', value='R')
+                    |  Una lectura r&aacute;pida de algunas partes del libro
+                    input.opcion(type='checkbox', name='pregunta11[]', value='A')
+                    |  Un amigo le habla del libro y se lo recomienda
+                    input.opcion(type='checkbox', name='pregunta11[]', value='K')
+                    |  Tiene historias, experiencias y ejemplos de la vida real.
+                label
+                    | Est&aacute; utilizando un libro, CD o sitio web para aprender c&oacute;mo tomar fotograf&iacute;as con su nueva c&aacute;mara digital. Le gustar&iacute;a tener:
+                .opcion-group
+                    input.opcion(type='checkbox', name='pregunta12[]', value='A')
+                    |  La oportunidad de hacer preguntas y que le hablen sobre la c&aacute;mara y sus caracter&iacute;sticas.
+                    input.opcion(type='checkbox', name='pregunta12[]', value='R')
+                    |  Instrucciones escritas con claridad, con caracter&iacute;sticas y puntos sobre qu&eacute; hacer
+                    input.opcion(type='checkbox', name='pregunta12[]', value='V')
+                    |  Diagramas que muestren la c&aacute;mara y qu&eacute; hace cada una de sus partes
+                    input.opcion(type='checkbox', name='pregunta12[]', value='K')
+                    |  Muchos ejemplos de fotograf&iacute;as buenas y malas y c&oacute;mo mejorar &eacute;stas.
+                label Prefiere a un profesor o un expositor que utiliza:
+                .opcion-group
+                    input.opcion(type='checkbox', name='pregunta13[]', value='K')
+                    |  Demostraciones, modelos o sesiones pr&aacute;cticas 
+                    input.opcion(type='checkbox', name='pregunta13[]', value='A')
+                    |  Preguntas y respuestas, charlas, grupos de discusi&oacute;n u oradores invitados.
+                    input.opcion(type='checkbox', name='pregunta13[]', value='R')
+                    |  Folletos, libros o lecturas
+                    input.opcion(type='checkbox', name='pregunta13[]', value='V')
+                    |  Diagramas, esquemas o gr&aacute;ficas
+                label
+                    | Ha acabado una competencia o una prueba y quisiera una retroalimentaci&oacute;n. Quisiera tener la retroalimentaci&oacute;n
+                .opcion-group
+                    input.opcion(type='checkbox', name='pregunta14[]', value='K')
+                    |  Utilizando ejemplos de lo que ha hecho
+                    input.opcion(type='checkbox', name='pregunta14[]', value='R')
+                    |  Utilizando una descripci&oacute;n escrita de sus resultados.
+                    input.opcion(type='checkbox', name='pregunta14[]', value='A')
+                    |  Escuchando a alguien haciendo una revisi&oacute;n detallada de su desempe&ntilde;o
+                    input.opcion(type='checkbox', name='pregunta14[]', value='V')
+                    |  Utilizando gr&aacute;ficas que muestren lo que ha conseguido.
+                label Va a elegir sus alimentos en un restaurante o caf&eacute;. Ud.
+                .opcion-group
+                    input.opcion(type='checkbox', name='pregunta15[]', value='K')
+                    |  Elegir&iacute;a algo que ya ha probado en ese lugar.
+                    input.opcion(type='checkbox', name='pregunta15[]', value='A')
+                    |  Escuchar&iacute;a al mesero o pedir&iacute;a recomendaciones a sus amigos
+                    input.opcion(type='checkbox', name='pregunta15[]', value='R')
+                    |  Elegir&iacute;a a partir de las descripciones del men&uacute;
+                    input.opcion(type='checkbox', name='pregunta15[]', value='V')
+                    |  Observar&iacute;a lo que otros est&aacute;n comiendo o las fotograf&iacute;as de cada platillo.
+                label
+                    | Tiene que hacer un discurso importante para una conferencia o una ocasi&oacute;n especial. Ud
+                .opcion-group
+                    input.opcion(type='checkbox', name='pregunta16[]', value='V')
+                    |  Elaborar&iacute;a diagramas o conseguir&iacute;a gr&aacute;ficos que le ayuden a explicar las ideas
+                    input.opcion(type='checkbox', name='pregunta16[]', value='A')
+                    |  Escribir&iacute;a algunas palabras clave y pr&aacute;ctica su discurso repetidamente.
+                    input.opcion(type='checkbox', name='pregunta16[]', value='R')
+                    |  Escribir&iacute;a su discurso y se lo aprender&iacute;a ley&eacute;ndolo varias veces
+                    input.opcion(type='checkbox', name='pregunta16[]', value='K')
+                    |  Conseguir&iacute;a muchos ejemplos e historias para hacer la charla real y pr&aacute;ctica
+                br
+                button(type='button', onclick='enviarRespuestas()') Enviar respuestas
 
-        script. 
-            function openUserType(evt, userType) {
 
-            var i, tabcontent, tablinks;
+                script.
+                    function enviarRespuestas() {
+                    const formElement = document.getElementById("miFormulario");
+                    const formData = new FormData(formElement);
 
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(userType).style.display = "block";
-            evt.currentTarget.className += " active";
+                    const selectedAnswers = {};
+                    formData.forEach((value, key) => {
+                        if (selectedAnswers[key]) {
+                        selectedAnswers[key].push(value);
+                        } else {
+                        selectedAnswers[key] = [value];
+                        }
+                    });
 
-            }
+                    fetch("/guardar_respuestas", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(selectedAnswers)
+                    })
+                    .then(response => response.text())
+                    .then(message => {
+                        alert(message);
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                    });
+                    }
