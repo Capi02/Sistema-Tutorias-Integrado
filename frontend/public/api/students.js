@@ -42,8 +42,13 @@ function studentsTable(students) {
     });
 }
 
-function citasTable(students) {
+function citastudentsTable(students) {
     console.log(students)
+    const citasEstadoMap = {
+        0: 'Pendiente',
+        1: 'Cancelada',
+        2: 'Aprobada',
+    };
     let table = new DataTable("#citas_table", {
         responsive: true,
         data: students,
@@ -54,15 +59,19 @@ function citasTable(students) {
             { data: 'nombre' },
             { data: 'username' },
             { data: 'role' },
-            { data: 'citasAprobadas' },
-            { data: 'citasPendientes' },
-            { data: 'citasCanceladas' },
+            {
+                data: 'citaEstado', // Agregamos el array citaEstado
+                render: function (data, type, row) {
+                    const estados = data.map(index => citasEstadoMap[index]).join(', ');
+                    return estados;
+                }
+            },
             { // Agregamos una columna para las acciones
                 data: null,
                 render: function (data, type, row) {
                     return `
-                <button class="citas_edit_button btn_edit" data-id="${data.id}">Editar</button>
-                <button class="citas_delete_button btn_delete" data-id="${data.id}">Eliminar</button>
+                <button class="student_edit_button btn_edit" data-id="${data.id}">Editar</button>
+                <button class="student_delete_button btn_delete" data-id="${data.id}">Eliminar</button>
                 `;
                 }
             }

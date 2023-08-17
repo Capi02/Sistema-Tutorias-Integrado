@@ -135,12 +135,32 @@ router.get("/tutorias", authenticateToken, (req, res) => {
 router.get("/cita-psicologia", authenticateToken, ( req, res) => {
     const {username, role} = req.user;
 
+    const horaInicio = req.query.horaInicio;
+    const horaFinal = req.query.horaFinal;
+    const numeroEmpleado = req.query.numeroEmpleado;
+    const matricula = req.query.matricula;
+    const apellidoPaterno = req.query.apellidoPaterno;
+    const apellidoMaterno = req.query.apellidoMaterno;
+    const nombre = req.query.nombre;
+    const fechaCita = req.query.fechaCita;
+    const fechaCreacion = req.query.fechaCreacion;
+    const estadoCita = req.query.estadoCita;
+
     const locals = {
         title: "Cita psicologia",
-        username, 
+        username,
+        horaInicio,
+        horaFinal,
         role,
+        numeroEmpleado,
+        matricula,
+        apellidoPaterno,
+        apellidoMaterno,
+        nombre,
+        fechaCita,
+        fechaCreacion,
+        estadoCita,
     }
-
     res.render("citas", locals)
 })
 

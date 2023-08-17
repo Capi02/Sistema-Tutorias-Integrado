@@ -125,16 +125,16 @@ block contenido
                               label(for='horaInicio') Hora de Inicio
                               input.entrevista_inicial_inputs_field(type='time' name='horaInicio' placeholder='Hora de Inicio' required='' data-parsley-type='datetime')
                           .entrevista_inicial_inputs_field
-                              label(for='horaFin') Hora de Fin
-                              input.entrevista_inicial_inputs_field(type='time' name='horaFin' placeholder='Hora de Fin' required='' data-parsley-type='datetime')
+                              label(for='horaFinal') Hora de Fin
+                              input.entrevista_inicial_inputs_field(type='time' name='horaFinal' placeholder='Hora de Fin' required='' data-parsley-type='datetime')
                           .entrevista_inicial_inputs_field
                               label(for='estadoCita') Estado de Cita
                               br
                               select.entrevista_inicial_inputs_field(aria-label='Default select example')
                                   option(value='' disabled='' selected='') Sin asignar
                           .entrevista_inicial_inputs_field
-                              label(for='fechaElaboracionCita') Fecha de Elaboracion de Cita
-                              input.entrevista_inicial_inputs_field(type='date' name='fechaElaboracionCita' placeholder='Fecha de elaboración' required='' data-parsley-type='date' )
+                              label(for='fechaCreacion') Fecha de Elaboracion de Cita
+                              input.entrevista_inicial_inputs_field(type='date' name='fechaCita' placeholder='Fecha de elaboración' required='' data-parsley-type='date' )
                           .entrevista_inicial_inputs_field
                               label(for='psicologo') Psicólogo a cargo
                               br
@@ -178,8 +178,46 @@ block contenido
               alert('No puedes seleccionar una fecha anterior al día actual.');
               $('#calendar').fullCalendar('unselect');
             } else {
+              $.ajax({
+                url: '/api/citas', // Cambia esto a la ruta de tu backend
+                type: 'POST',
+                data: {
+                  start: start.format(),
+                  end: end.format()
+                },
+                success: function() {
+                  $('#calendar').fullCalendar('refetchEvents');
+                }
+              });
               $('#myModal').modal('show');
             }
+          },
+          events: function(horaInicio, horaFinal, nombre, apellidoPaterno, apellidoMaterno, matricula, idCita, fechaCreacion, fechaCita, numeroEmpleado, estadoCita, email, timezone, callback) {
+            $.ajax({
+              url: '/cita-psicologia', // Cambia esto a la ruta de tu backend
+              type: 'GET',
+              success: function(doc) {
+                var events = [];
+                doc.forEach(function(event) {
+                  events.push({
+                    title: "",
+                    horaInicio: event.horaInicio,
+                    horaFinal: event.horaFinal,
+                    nombre: event.nombre,
+                    apellidoPaterno: event.apellidoPaterno,
+                    apellidoMaterno: event.apellidoMaterno,
+                    matricula: event.matricula,
+                    idCita: event._id,
+                    fechaCreacion: event.fechaCreacion,
+                    fechaCita: event.fechaCita,
+                    numeroEmpleado: event.numeroEmpleado,
+                    estadoCita: event.estadoCita,
+                    email: event.email,
+                  });
+                });
+                callback(events);
+              }
+            });
           },
           monthNames: [
             'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
@@ -242,4 +280,8 @@ block contenido
 
         const currentAreaValue = $('#input7').val();
         updateAreaOptions(currentAreaValue);
+
+        app.post('cita-psicologia', function(req, res) {
+        res.redirect('/cita-confirmada');
+        });
       });
