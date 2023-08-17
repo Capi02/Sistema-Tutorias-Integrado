@@ -19,7 +19,7 @@ block contenido
         .entrevista_inicial_inputs_field
           label(for='bachilleratoegresado') &iquest;De qu&eacute; bachillerato egresaste ? 
             span.required_inputs *
-          select#inputaca1.entrevista_inicial_inputs(style='width:250px' type='text' name='bachilleratoegresado' required='' value=bachilleratoegresado)
+          select#inputaca1.entrevista_inicial_inputs(style='width:395px' type='text' name='bachilleratoegresado' required='' value=bachilleratoegresado)
             option(value='') Elija una opcion
             option(value='CETis 71' selected=bachilleratoegresado === 'CETis 71') CETis 71
             option(value='CETis 131' selected=bachilleratoegresado === 'CETis 131') CETis 131
@@ -93,6 +93,32 @@ block contenido
           label(for='input12') Calificaci&oacute;n 4:
           input#input12.entrevista_inicial_inputs(type='text', placeholder='Cuando se tengan' readonly="readonly" class='decimal-input')
         .entrevista_inicial_button_container
-          button.submit-button.forms_button(type='submit') Enviar
+          button.submit-button.forms_button(class='submit-button forms_button' type='submit') Enviar
       script(src='include/changesaca.js')
-      script(src="include/number.js") 
+      script(src="include/number.js")
+      script(src='https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js')
+      script.
+        const submitButton = document.querySelector('.submit-button');
+
+        submitButton.addEventListener('click', function () {
+          // Aquí puedes realizar validaciones del formulario si es necesario
+          // Si todo está validado, puedes almacenar un valor en las cookies o el almacenamiento local
+          localStorage.setItem('formSubmitted', 'true');
+        });
+
+        // Verifica si el formulario se ha enviado previamente al cargar la página
+        window.addEventListener('load', function () {
+          const formSubmitted = localStorage.getItem('formSubmitted');
+
+          if (formSubmitted === 'true') {
+            // Muestra la notificación de éxito usando SweetAlert
+            Swal.fire({
+              icon: 'success',
+              title: 'Listo',
+              text: 'Datos del alumno guardados con exito!',
+            });
+
+            // Limpia el valor almacenado para evitar que la alerta se muestre en futuras recargas
+            localStorage.removeItem('formSubmitted');
+          }
+        });

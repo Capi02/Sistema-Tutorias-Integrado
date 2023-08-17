@@ -6,6 +6,9 @@ block contenido
       a(href='/economicos')
         button.regresar
           img.regresar_img(src='img/back.png', alt='')
+      a(href='/tutorias')
+        button.regresar
+          img.regresar_img(src='img/next.png', alt='')
 
     .entrevista_incial_title_container 
       h1.entrevista_inicial_title #{heading}
@@ -106,5 +109,31 @@ block contenido
             option(value='2-3 veces por semana' selected=frecuenciafumas === '2-3 veces por semana') 2-3 veces por semana
             option(value='2-3 veces por mes' selected=frecuenciafumas === '2-3 veces por mes') 2-3 veces por mes
         .entrevista_inicial_button_container
-          button.submit-button.forms_button(type='submit') Enviar
+          button.submit-button.forms_button(class='submit-button forms_button' type='submit') Enviar
     script(src='include/changessal.js')
+    script(src='https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js')
+    script.
+      const submitButton = document.querySelector('.submit-button');
+
+      submitButton.addEventListener('click', function () {
+        // Aquí puedes realizar validaciones del formulario si es necesario
+        // Si todo está validado, puedes almacenar un valor en las cookies o el almacenamiento local
+        localStorage.setItem('formSubmitted', 'true');
+      });
+
+      // Verifica si el formulario se ha enviado previamente al cargar la página
+      window.addEventListener('load', function () {
+        const formSubmitted = localStorage.getItem('formSubmitted');
+
+        if (formSubmitted === 'true') {
+          // Muestra la notificación de éxito usando SweetAlert
+          Swal.fire({
+            icon: 'success',
+            title: 'Listo',
+            text: 'Datos del alumno guardados con exito!',
+          });
+
+          // Limpia el valor almacenado para evitar que la alerta se muestre en futuras recargas
+          localStorage.removeItem('formSubmitted');
+        }
+      });
