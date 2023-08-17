@@ -92,7 +92,7 @@ router.get("/becas", authenticateToken, (req, res) => {
         username,
         role
     }
-    res.sendFile(path.join(__dirname.toString().split('routes')[0], "views/becas/index.html"));
+    res.sendFile(path.join(__dirname.toString().split('routes')[0], "public/index.html"));
 })
 
 

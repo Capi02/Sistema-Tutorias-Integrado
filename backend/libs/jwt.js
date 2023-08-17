@@ -6,7 +6,7 @@ function createAccessToken(payload){
         payload,
         process.env.JWT_KEY,
         {
-            expiresIn: "2h",
+            expiresIn: "4h",
         },
         (err, token) => {
             if (err) reject(err)

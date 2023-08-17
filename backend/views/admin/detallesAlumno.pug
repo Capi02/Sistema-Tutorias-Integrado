@@ -1,0 +1,182 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='preconnect' href='https://fonts.googleapis.com')
+    link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+    link(rel="shortcut icon", href="/img/ti_logo.png", type="image/x-icon")
+    link(rel='preload' href='../../css/app.css' as='style')
+    link(rel="stylesheet", href="../../css/app.css")
+    script(src="https://code.jquery.com/jquery-3.7.0.min.js") 
+    script(src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js") 
+    link(rel="stylesheet", href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css")
+    script(src="https://unpkg.com/sweetalert/dist/sweetalert.min.js") 
+    
+    title=title
+
+  body
+    include ../layout/header
+    block Content
+        .container.mb-4
+            .tab.mt-4
+                .types_container 
+                    button.tablinks.active(onclick="openUserType(event, 'InformacionAlumno')") Información Alumno
+                    button.tablinks(onclick="openUserType(event, 'InformacionAcademica')") Información Academica
+                    button.tablinks(onclick="openUserType(event, 'AspectosEconomicos')") Aspectos Economicos
+                    button.tablinks(onclick="openUserType(event, 'Salud')") Información de Salud
+            #InformacionAlumno.tabcontent.active(style = "display:block;")
+                .student_info_section 
+                    ul
+                        li.info_list 
+                            span.label_info Matrícula: 
+                            | #{student.matricula} 
+                        li.info_list  
+                            span.label_info Apellido Paterno: 
+                            | #{student.apellidoPaterno}
+                        li.info_list  
+                            span.label_info Apellido Materno: 
+                            | #{student.apellidoMaterno}
+                        li.info_list 
+                            span.label_info Nombre(s): 
+                            | #{student.nombre}
+                          
+            #InformacionAcademica.tabcontent
+                .student_info_section
+                    ul
+                        li.info_list  
+                            span.label_info Bachillerato: 
+                            | #{student.aspectosAcademicos.bachilleratoegresado} 
+                        li.info_list  
+                            span.label_info Calificaciones: 
+                            | #{student.aspectosAcademicos.calificacioninterno}
+                        li.info_list  
+                            span.label_info Especialidad Bachillerato: 
+                            | #{student.aspectosAcademicos.especialidadbachillerato}
+                        li.info_list 
+                            span.label_info Examen Ceneval: 
+                            | #{student.aspectosAcademicos.examenceneval}
+                        li.info_list 
+                            span.label_info Examen Interno: 
+                            | #{student.aspectosAcademicos.exameninterno}
+                        li.info_list 
+                            span.label_info Materias que se le dificultan: 
+                            | #{student.aspectosAcademicos.materiasdificultan}
+                        li.info_list 
+                            span.label_info Otro Bachillerato: 
+                            | #{student.aspectosAcademicos.otrobachillerato}
+                        li.info_list 
+                            span.label_info Promedio General: 
+                            | #{student.aspectosAcademicos.promediogeneral}
+                        li.info_list 
+                            span.label_info Tecnica de estudio: 
+                            | #{student.aspectosAcademicos.tecnicasdeestudio}  
+                            
+            #AspectosEconomicos.tabcontent
+                .student_info_section
+                    ul
+                        li.info_list  
+                            span.label_info Casa donde vive: 
+                            | #{student.aspectosEconomicos.casadondevives} 
+                        li.info_list  
+                            span.label_info Con quien vive: 
+                            | #{student.aspectosEconomicos.conquienvives}
+                        li.info_list 
+                            span.label_info Tiene hermanos: 
+                            | #{student.aspectosEconomicos.tieneshermanos} 
+                        li.info_list  
+                            span.label_info  Número hermanos: 
+                            | #{student.aspectosEconomicos.cuantoshermanos}
+                        li.info_list 
+                            span.label_info Hijos:
+                            | #{student.aspectosEconomicos.cuantoshijos}
+                        li.info_list 
+                            span.label_info Beca: 
+                            | #{student.aspectosEconomicos.cuentasconbeca}
+                        li.info_list 
+                            span.label_info Tipo beca: 
+                            | #{student.aspectosEconomicos.tipobeca} 
+                        li.info_list 
+                            span.label_info Nombre beca: 
+                            | #{student.aspectosEconomicos.nombrebeca} 
+                        li.info_list 
+                            span.label_info Lugar donde trabaja: 
+                            | #{student.aspectosEconomicos.dondetrabajas}
+                        li.info_list 
+                            span.label_info Embarazo: 
+                            | #{student.vembarazo}
+                        li.info_list 
+                            span.label_info Horario laboral: 
+                            | #{student.aspectosEconomicos.horariolaboral}
+                        li.info_list 
+                            span.label_info Padre o Madre: 
+                            | #{student.aspectosEconomicos.padreomadre} 
+                        li.info_list 
+                            span.label_info Profesion(Mamá): 
+                            | #{student.aspectosEconomicos.profesionmama} 
+                        li.info_list 
+                            span.label_info Profesion(Papá): 
+                            | #{student.aspectosEconomicos.profesionpapa} 
+                        li.info_list 
+                            span.label_info Trabaja: 
+                            | #{student.aspectosEconomicos.trabajas}      
+            #Salud.tabcontent 
+                .student_info_section
+                    ul
+                        li.info_list  
+                            span.label_info Bebicas alcoholicas: 
+                            | #{student.aspectosSalud.bebidasalcoholicas} 
+                        li.info_list 
+                            span.label_info Frecuencia bebidas alcoholicas:
+                            | #{student.aspectosSalud.enfermadadcronica}
+                        li.info_list  
+                            span.label_info Fuma: 
+                            | #{student.aspectosSalud.fumas}
+                        li.info_list 
+                            span.label_info Frecuencia con la que fuma: 
+                            | #{student.aspectosSalud.frecuenciafumas}
+                        li.info_list 
+                            span.label_info Enfermedad cronica: 
+                            | #{student.aspectosSalud.enfermadadcronica} 
+                        li.info_list 
+                            span.label_info Cual enfermedad: 
+                            | #{student.aspectosSalud.queenfermedad} 
+                        li.info_list 
+                            span.label_info Toma medicamentos: 
+                            | #{student.aspectosSalud.tomamedicamento} 
+                        li.info_list 
+                            span.label_info Frecuencia de medicamentos: 
+                            | #{student.aspectosSalud.medicamentoyfrecuencia}
+                        li.info_list 
+                            span.label_info Discapacidad: 
+                            | #{student.aspectosSalud.tienediscapacidad}
+                        li.info_list 
+                            span.label_info Tipo discapacidad: 
+                            | #{student.aspectosSalud.tipodiscapacidad}
+                        li.info_list 
+                            span.label_info Tipo condicion: 
+                            | #{student.aspectosSalud.tipocondicion} 
+    include ../layout/footer
+    script. 
+        function openUserType(evt, userType) {
+       
+        var i, tabcontent, tablinks;
+
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(userType).style.display = "block";
+        evt.currentTarget.className += " active";
+        }
+            
+    
+                   
+                      
+
+            

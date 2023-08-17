@@ -1,4 +1,25 @@
 extends ../layout/adminLayout
 block Content
     .content_container
-      h1 Grupos
+      .groups_container 
+          .create_group_button_container
+            h3.groups_title Crear Grupo
+            form#register_group_form(method="POST" action="") 
+              .create_group_field 
+                  label.add_user_label(for="groupName") Nombre:
+                  input.add_user_input#groupName(type="text" name="groupName" placeholder="Ej: 5A" ) 
+              .create_groups_button_container 
+                  button.forms_button(type="submit") Crear
+          h3.groups_title Grupos Actuales
+          table#groups_table.table.display.cell-border.hover.row-border
+              thead
+                tr
+                  th ID
+                  th Grupo
+                  th Tutor 
+                  th Acciones
+              tbody  
+    div#overlay
+      div.show_students_container
+  
+    script(src="/api/groups.js" type="module") 
