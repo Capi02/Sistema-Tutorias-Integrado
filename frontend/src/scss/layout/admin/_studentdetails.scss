@@ -1,0 +1,16 @@
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
+
+.student_info_section {
+  background-color: v.$login_color;
+  padding: 3rem;
+  font-size: 1.5rem;
+
+  .info_list{
+    margin-top: 1.2rem;
+  }
+ 
+  .label_info{
+    font-weight: bold;
+  }
+}

@@ -33,6 +33,7 @@ function studentsTable(students) {
                 render: function (data, type, row) {
                     return `
                 <button class="student_edit_button btn_edit" data-id="${data.id}">Editar</button>
+                <a href="/admin/student/${data.id}" class="student_details_button btn_edit" data-id="${data.id}">Detalles</a>
                 <button class="student_delete_button btn_delete" data-id="${data.id}">Eliminar</button>
               `;
                 }

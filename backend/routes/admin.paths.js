@@ -1,12 +1,13 @@
 const { authenticateToken } = require("../middlewares/validateToken")
-const {authenticateRole} = require("../middlewares/verifyRole");
- 
+const { authenticateRole } = require("../middlewares/verifyRole");
+const Student = require("../models/Student.model")
+
 
 const Router = require("express");
 const router = Router();
 
 router.get("/", authenticateToken, authenticateRole("admin"), (req, res) => {
-    const {username, role} = req.user;
+    const { username, role } = req.user;
 
     const locals = {
         title: "Admin",
@@ -17,7 +18,7 @@ router.get("/", authenticateToken, authenticateRole("admin"), (req, res) => {
 })
 
 router.get("/estudiantes", authenticateToken, authenticateRole("admin"), (req, res) => {
-    const {username, role} = req.user;
+    const { username, role } = req.user;
 
     const locals = {
         title: "Estudiantes",
@@ -27,8 +28,34 @@ router.get("/estudiantes", authenticateToken, authenticateRole("admin"), (req, r
     res.render("admin/estudiantes", locals)
 })
 
+router.get("/student/:id", authenticateToken, authenticateRole("admin"), async (req, res) => {
+    try {
+        const { username, role } = req.user;
+        const { id } = req.params;
+
+        const studentInformation = await Student.findById({ _id: id })
+
+        if (studentInformation) {
+            const locals = {
+                title: "Estudiantes",
+                username,
+                student: studentInformation
+            }
+
+            res.render("admin/detallesAlumno", locals)
+        } else {
+            return res.status(404).json({ error: "Estudiante no encontrado" })
+        }
+    } catch (err) {
+        console.error('Error al obtener los detalles del estudiante:', err);
+        throw err;
+    }
+
+
+})
+
 router.get("/maestros", authenticateToken, authenticateRole("admin"), (req, res) => {
-    const {username, role} = req.user;
+    const { username, role } = req.user;
 
     const locals = {
         title: "Maestros",
@@ -40,7 +67,7 @@ router.get("/maestros", authenticateToken, authenticateRole("admin"), (req, res)
 })
 
 router.get("/psicologos", authenticateToken, authenticateRole("admin"), (req, res) => {
-    const {username, role} = req.user;
+    const { username, role } = req.user;
 
     const locals = {
         title: "Psicólogos",
@@ -51,7 +78,7 @@ router.get("/psicologos", authenticateToken, authenticateRole("admin"), (req, re
 })
 
 router.get("/agregar", authenticateToken, authenticateRole("admin"), (req, res) => {
-    const {username, role} = req.user;
+    const { username, role } = req.user;
 
     const locals = {
         title: "Agregar",
@@ -62,7 +89,7 @@ router.get("/agregar", authenticateToken, authenticateRole("admin"), (req, res) 
 })
 
 router.get("/grupos", authenticateToken, authenticateRole("admin"), (req, res) => {
-    const {username, role} = req.user;
+    const { username, role } = req.user;
 
     const locals = {
         title: "Grupos",
@@ -73,7 +100,7 @@ router.get("/grupos", authenticateToken, authenticateRole("admin"), (req, res) =
 })
 
 router.get("/pat", authenticateToken, authenticateRole("admin"), (req, res) => {
-    const {username, role} = req.user;
+    const { username, role } = req.user;
 
     const locals = {
         title: "PAT ",
