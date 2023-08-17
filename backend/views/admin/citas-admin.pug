@@ -7,8 +7,13 @@ block Content
         thead
           tr
             th Matricula
+<<<<<<< HEAD
             th Apellido Paterno
             th Apellido Materno
+=======
+            th Apellido Paterno,
+            th Apellido Materno,
+>>>>>>> dc25240ac0c9a0f6fbacc71aaa1a8ff0fa1286a8
             th Nombre
             th Nombre Usuario
             th Tipo
@@ -25,7 +30,11 @@ block Content
                 label(for="edit_matricula") Matricula:
                 input.edit_input#edit_input_matricula(type="text" name="matricula" placeholder="Matricula")
               .edit_field
+<<<<<<< HEAD
                 label(for="edit_nombre") Nombre:
+=======
+                label(for="edit_matricula") Nombre:
+>>>>>>> dc25240ac0c9a0f6fbacc71aaa1a8ff0fa1286a8
                 input.edit_input#edit_input_nombre(type="text" name="nombre" placeholder="Nombre")
               .edit_field
                 label(for="edit_apellidoPaterno") Apellido Paterno:
@@ -40,6 +49,7 @@ block Content
                 input.edit_input#edit_input_password(type="password" name="password" placeholder="Contraseña")
               .edit_field
                 label(for="edit_citasPendientes") Citas Pendientes:
+<<<<<<< HEAD
                 input.edit_input#edit_input_citasPendientes(type="text" name="citaEstado[0]" placeholder="Citas Pendientes")
               .edit_field
                 label(for="edit_citasCanceladas") Citas Canceladas:
@@ -47,6 +57,15 @@ block Content
               .edit_field
                 label(for="edit_citasAprobadas") Citas Aprobadas:
                 input.edit_input#edit_input_citasAprobadas(type="text" name="citaEstado[2]" placeholder="Citas Aprobadas")
+=======
+                input.edit_input#edit_input_citasPendientes(type="text" name="citasPendientes" placeholder="Citas Pendientes")
+              .edit_field
+                label(for="edit_citasAprobadas") Citas Aprobadas:
+                input.edit_input#edit_input_citasAprobadas(type="text" name="citasAprobadas" placeholder="Citas Aprobadas")
+              .edit_field
+                label(for="edit_citasCanceladas") Citas Canceladas:
+                input.edit_input#edit_input_citasCanceladas(type="text" name="citasCanceladas" placeholder="Citas Canceladas")
+>>>>>>> dc25240ac0c9a0f6fbacc71aaa1a8ff0fa1286a8
               .edit_buttons_container 
                 button.student_cancel_button(type="button") Cancelar
                 button.save_edit_button(type="button") Guardar Cambios

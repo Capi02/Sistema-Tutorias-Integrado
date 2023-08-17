@@ -42,6 +42,7 @@ function studentsTable(students) {
     });
 }
 
+<<<<<<< HEAD
 function citastudentsTable(students) {
     console.log(students)
     const citasEstadoMap = {
@@ -49,6 +50,10 @@ function citastudentsTable(students) {
         1: 'Cancelada',
         2: 'Aprobada',
     };
+=======
+function citasTable(students) {
+    console.log(students)
+>>>>>>> dc25240ac0c9a0f6fbacc71aaa1a8ff0fa1286a8
     let table = new DataTable("#citas_table", {
         responsive: true,
         data: students,
@@ -59,6 +64,7 @@ function citastudentsTable(students) {
             { data: 'nombre' },
             { data: 'username' },
             { data: 'role' },
+<<<<<<< HEAD
             {
                 data: 'citaEstado', // Agregamos el array citaEstado
                 render: function (data, type, row) {
@@ -66,12 +72,22 @@ function citastudentsTable(students) {
                     return estados;
                 }
             },
+=======
+            { data: 'citasAprobadas' },
+            { data: 'citasPendientes' },
+            { data: 'citasCanceladas' },
+>>>>>>> dc25240ac0c9a0f6fbacc71aaa1a8ff0fa1286a8
             { // Agregamos una columna para las acciones
                 data: null,
                 render: function (data, type, row) {
                     return `
+<<<<<<< HEAD
                 <button class="student_edit_button btn_edit" data-id="${data.id}">Editar</button>
                 <button class="student_delete_button btn_delete" data-id="${data.id}">Eliminar</button>
+=======
+                <button class="citas_edit_button btn_edit" data-id="${data.id}">Editar</button>
+                <button class="citas_delete_button btn_delete" data-id="${data.id}">Eliminar</button>
+>>>>>>> dc25240ac0c9a0f6fbacc71aaa1a8ff0fa1286a8
                 `;
                 }
             }

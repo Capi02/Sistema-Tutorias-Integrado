@@ -125,16 +125,26 @@ block contenido
                               label(for='horaInicio') Hora de Inicio
                               input.entrevista_inicial_inputs_field(type='time' name='horaInicio' placeholder='Hora de Inicio' required='' data-parsley-type='datetime')
                           .entrevista_inicial_inputs_field
+<<<<<<< HEAD
                               label(for='horaFinal') Hora de Fin
                               input.entrevista_inicial_inputs_field(type='time' name='horaFinal' placeholder='Hora de Fin' required='' data-parsley-type='datetime')
+=======
+                              label(for='horaFin') Hora de Fin
+                              input.entrevista_inicial_inputs_field(type='time' name='horaFin' placeholder='Hora de Fin' required='' data-parsley-type='datetime')
+>>>>>>> dc25240ac0c9a0f6fbacc71aaa1a8ff0fa1286a8
                           .entrevista_inicial_inputs_field
                               label(for='estadoCita') Estado de Cita
                               br
                               select.entrevista_inicial_inputs_field(aria-label='Default select example')
                                   option(value='' disabled='' selected='') Sin asignar
                           .entrevista_inicial_inputs_field
+<<<<<<< HEAD
                               label(for='fechaCreacion') Fecha de Elaboracion de Cita
                               input.entrevista_inicial_inputs_field(type='date' name='fechaCita' placeholder='Fecha de elaboración' required='' data-parsley-type='date' )
+=======
+                              label(for='fechaElaboracionCita') Fecha de Elaboracion de Cita
+                              input.entrevista_inicial_inputs_field(type='date' name='fechaElaboracionCita' placeholder='Fecha de elaboración' required='' data-parsley-type='date' )
+>>>>>>> dc25240ac0c9a0f6fbacc71aaa1a8ff0fa1286a8
                           .entrevista_inicial_inputs_field
                               label(for='psicologo') Psicólogo a cargo
                               br
@@ -178,6 +188,7 @@ block contenido
               alert('No puedes seleccionar una fecha anterior al día actual.');
               $('#calendar').fullCalendar('unselect');
             } else {
+<<<<<<< HEAD
               $.ajax({
                 url: '/api/citas', // Cambia esto a la ruta de tu backend
                 type: 'POST',
@@ -219,6 +230,11 @@ block contenido
               }
             });
           },
+=======
+              $('#myModal').modal('show');
+            }
+          },
+>>>>>>> dc25240ac0c9a0f6fbacc71aaa1a8ff0fa1286a8
           monthNames: [
             'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
             'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
@@ -280,8 +296,11 @@ block contenido
 
         const currentAreaValue = $('#input7').val();
         updateAreaOptions(currentAreaValue);
+<<<<<<< HEAD
 
         app.post('cita-psicologia', function(req, res) {
         res.redirect('/cita-confirmada');
         });
+=======
+>>>>>>> dc25240ac0c9a0f6fbacc71aaa1a8ff0fa1286a8
       });
